@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.acrobatics"
+object.version,"1"
+
+skill.name,"Acrobatics"
+skill.description,"Measures physical coordination, balance, flexibility, and the ability to perform complex movements while navigating difficult terrain and obstacles."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cold_rocky_ground"
+object.version,"1"
+
+tile.name,"Frosted Rock"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#727E90"
+tile.elevation,"2"
+tile.movement_difficulty,"6"

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create character · Beyond the Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/character_creator.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('main.index') }}">BEYOND THE ARENA</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a class="active" href="{{ url_for('main.compendium') }}">Compendium</a>
+            <a href="{{ url_for('main.arenas_page') }}">Arenas</a>
+            <a href="/play">Play</a>
+        </nav>
+    </header>
+
+    <main class="creator-shell" data-active-step="1">
+        <a class="back-link" href="{{ url_for('main.compendium') }}">← Back to Compendium</a>
+        <section class="creator-heading">
+            <p class="eyebrow">BUILD A CHARACTER</p>
+            <h1>Create a character</h1>
+            <p>Define their identity, distribute their abilities, and set their personality.</p>
+        </section>
+
+        <div class="step-track" aria-label="Character creation steps">
+            {% for title in ('Identity', 'Attributes', 'Skills', 'Facets and Values') %}
+            <div class="step-indicator{% if loop.first %} is-current{% endif %}" data-step-indicator="{{ loop.index }}">
+                <span>0{{ loop.index }}</span><b>{{ title }}</b>
+            </div>
+            {% if not loop.last %}<div class="step-line"></div>{% endif %}
+            {% endfor %}
+        </div>
+
+        {% if errors %}
+        <div class="form-errors" role="alert">
+            <strong>Please correct these details</strong>
+            <ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+
+        <form id="characterCreator" method="post" action="{{ url_for('main.create_character') }}" novalidate>
+            <section class="creator-step" data-step="1">
+                <div class="section-heading">
+                    <div><p class="eyebrow">STEP ONE</p><h2>Identity</h2></div>
+                    <span class="step-count">1 / 4</span>
+                </div>
+                <p class="section-help">Choose a registered role and species, then add the character’s profile details.</p>
+
+                <div class="basic-grid">
+                    <label class="field field-wide">
+                        <span>Name <i>required</i></span>
+                        <input name="name" required maxlength="100" value="{{ form_data.get('name','') }}" placeholder="Character name">
+                    </label>
+                    <label class="field">
+                        <span>Nickname</span>
+                        <input name="nickname" maxlength="100" value="{{ form_data.get('nickname','') }}" placeholder="Optional">
+                    </label>
+                    <label class="field">
+                        <span>Role <i>required</i></span>
+                        <select id="roleSelect" name="role" required>
+                            <option value="">Choose a role</option>
+                            {% for role in references.roles %}
+                            <option value="{{ role.id }}" data-folder="{{ role.folder }}" {% if form_data.get('role', default_role) == role.id %}selected{% endif %}>{{ role.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <div class="field field-wide" id="hardcoreField" hidden>
+                        <span>Tribute setting</span>
+                        <label class="hardcore-checkbox"><input id="hardcoreToggle" name="hardcore" type="checkbox" value="true" {% if form_data.get('hardcore') in ['true', 'on', '1'] %}checked{% endif %}> Hardcore</label>
+                        <small class="field-note">Off by default. Only Tributes can enable Hardcore.</small>
+                    </div>
+                    <label class="field">
+                        <span>Species <i>required</i></span>
+                        <select id="speciesSelect" name="species" required>
+                            <option value="">Choose a species</option>
+                            {% for species in references.species %}
+                            <option value="{{ species.id }}" {% if form_data.get('species', default_species) == species.id %}selected{% endif %}>{{ species.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <small class="field-note" id="tributeSpeciesNote" hidden>Tributes must be Human.</small>
+                    </label>
+                    <label class="field">
+                        <span>Pronouns <i>required</i></span>
+                        <select name="pronouns" required>
+                            <option value="">Choose pronouns</option>
+                            {% for item in references.pronouns %}
+                            <option value="{{ item.name }}" {% if form_data.get('pronouns') == item.name %}selected{% endif %}>{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Gender <i>required</i></span>
+                        <select name="gender" required>
+                            <option value="">Choose a gender</option>
+                            {% for item in references.genders %}
+                            <option value="{{ item.name }}" {% if form_data.get('gender') == item.name %}selected{% endif %}>{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Age <i>13–99,999</i></span>
+                        <input name="age" type="number" min="{{ settings.get('character_creation.identity.age.minimum') }}" max="{{ settings.get('character_creation.identity.age.maximum') }}" step="1" required value="{{ form_data.get('age','') }}">
+                    </label>
+                    <label class="field">
+                        <span>Height (cm) <i>60–500</i></span>
+                        <input name="height_cm" type="number" min="{{ settings.get('character_creation.identity.height_cm.minimum') }}" max="{{ settings.get('character_creation.identity.height_cm.maximum') }}" step="any" required value="{{ form_data.get('height_cm','') }}">
+                    </label>
+                    <label class="field">
+                        <span>Weight (kg) <i>30–9,999</i></span>
+                        <input name="weight_kg" type="number" min="{{ settings.get('character_creation.identity.weight_kg.minimum') }}" max="{{ settings.get('character_creation.identity.weight_kg.maximum') }}" step="any" required value="{{ form_data.get('weight_kg','') }}">
+                    </label>
+                    <label class="field field-wide">
+                        <span>Portrait image URL <i>required</i></span>
+                        <input id="portraitUrl" name="portrait_url" type="url" required maxlength="1000" value="{{ form_data.get('portrait_url','') }}" placeholder="https://…">
+                    </label>
+                    <div class="portrait-previews field-wide">
+                        <div class="preview-card">
+                            <span class="preview-title">Profile image</span>
+                            <div class="preview-window">
+                                <span class="preview-placeholder" data-preview-placeholder="portrait">Add a profile image URL</span>
+                                <img data-preview-image="portrait" alt="Profile image preview" hidden>
+                            </div>
+                            <small data-preview-status="portrait" aria-live="polite">Waiting for an image URL</small>
+                        </div>
+                        <div class="preview-card">
+                            <span class="preview-title">Death image</span>
+                            <div class="preview-window">
+                                <span class="preview-placeholder" data-preview-placeholder="death">A black-and-white version of the profile image</span>
+                                <img data-preview-image="death" alt="Death image preview" hidden>
+                            </div>
+                            <label class="bw-toggle"><input id="useBwDeath" type="checkbox" {% if not form_data.get('death_portrait_url') or form_data.get('death_portrait_url') == 'bw' %}checked{% endif %}> Use profile image in black and white</label>
+                            <input id="deathPortraitValue" type="hidden" name="death_portrait_url" value="{{ form_data.get('death_portrait_url','bw') }}">
+                            <input id="customDeathPortraitUrl" type="url" maxlength="1000" aria-label="Custom death image URL" placeholder="Or enter a different death image URL" value="{% if form_data.get('death_portrait_url') and form_data.get('death_portrait_url') != 'bw' %}{{ form_data.get('death_portrait_url') }}{% endif %}" {% if not form_data.get('death_portrait_url') or form_data.get('death_portrait_url') == 'bw' %}disabled{% endif %}>
+                            <small data-preview-status="death" aria-live="polite">Uses the profile image by default</small>
+                        </div>
+                    </div>
+                    <label class="field field-wide">
+                        <span>Description</span>
+                        <textarea name="description" rows="4" maxlength="2000" placeholder="A few lines about the character">{{ form_data.get('description','') }}</textarea>
+                    </label>
+                </div>
+                <div class="step-actions"><span></span><button type="button" class="primary-button" data-next>Continue to Attributes →</button></div>
+            </section>
+
+            <section class="creator-step" data-step="2" hidden>
+                <div class="section-heading">
+                    <div><p class="eyebrow">STEP TWO</p><h2>Attributes</h2></div>
+                    <div class="point-counter" data-point-counter="attributes" data-extra-points="{{ settings.get('character_creation.attribute.additional_points','18') }}">
+                        <b data-points-remaining>18</b><span> points remaining</span>
+                    </div>
+                </div>
+                <p class="section-help">Every attribute begins at its definition’s default. Adjust the values and use the full bonus pool.</p>
+                <div class="allocation-grid" data-allocation="attributes">
+                    {% for item in references.attributes %}
+                    <label class="allocation-card">
+                        <span class="allocation-copy"><b>{{ item.name }}</b><small>{{ item.description }}</small></span>
+                        <span class="allocation-entry"><small>{{ item.minimum }}–{{ item.maximum }}</small>
+                            <input type="number" name="attribute_{{ item.id }}" min="{{ item.minimum }}" max="{{ item.maximum }}" step="1" value="{{ form_data.get('attribute_' ~ item.id, item.default) }}" data-point-value data-default="{{ item.default }}" required>
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+                <p class="allocation-status" data-allocation-status="attributes" aria-live="polite"></p>
+                <div class="step-actions"><button type="button" class="secondary-button" data-back>← Identity</button><button type="button" class="primary-button" data-next>Continue to Skills →</button></div>
+            </section>
+
+            <section class="creator-step" data-step="3" hidden>
+                <div class="section-heading">
+                    <div><p class="eyebrow">STEP THREE</p><h2>Skills</h2></div>
+                    <div class="point-counter" data-point-counter="skills" data-points-per-item="{{ settings.get('character_creation.skill.additional_points_per_registered_skill','3') }}">
+                        <b data-points-remaining>0</b><span> points remaining</span>
+                    </div>
+                </div>
+                <p class="section-help">Skills begin at their own definition defaults. Lowering a value below its default returns points to the pool.</p>
+                <div class="skill-groups" data-allocation="skills">
+                    {% for category, items in references.skills|groupby('category') %}
+                    <section class="skill-group">
+                        <h3>{{ category|replace('_',' ')|title }}</h3>
+                        {% for item in items %}
+                        <label class="skill-card">
+                            <span class="skill-copy"><b>{{ item.name }}</b><small>{{ item.description }}</small>
+                                {% if item.attribute %}<small class="skill-attribute">Associated attribute: {{ item.attribute|title }}</small>{% endif %}
+                            </span>
+                            <span class="allocation-entry"><small>{{ item.minimum }}–{{ [item.maximum,item.creation_maximum]|min }}</small>
+                                <input type="number" name="skill_{{ item.id }}" min="{{ item.minimum }}" max="{{ [item.maximum,item.creation_maximum]|min }}" step="1" value="{{ form_data.get('skill_' ~ item.id, item.default) }}" data-point-value data-default="{{ item.default }}" required>
+                            </span>
+                        </label>
+                        {% endfor %}
+                    </section>
+                    {% endfor %}
+                </div>
+                <p class="allocation-status" data-allocation-status="skills" aria-live="polite"></p>
+                <div class="step-actions"><button type="button" class="secondary-button" data-back>← Attributes</button><button type="button" class="primary-button" data-next>Continue to Facets and Values →</button></div>
+            </section>
+
+            <section class="creator-step" data-step="4" hidden>
+                <div class="section-heading">
+                    <div><p class="eyebrow">STEP FOUR</p><h2>Facets and Values</h2></div>
+                    <span class="step-count">No shared point pool</span>
+                </div>
+                <p class="section-help">Set each registered personality measure independently within its definition’s range.</p>
+                <section class="slider-section">
+                    <header><div><h3>Values</h3><p>What matters most to them?</p></div><span>{{ references["values"]|length }}</span></header>
+                    <div class="slider-grid">
+                        {% for pair in references.value_pairs %}
+                        <div class="slider-pair-row">
+                            {% for item in pair %}
+                            <label class="slider-control" for="value_{{ item.id }}">
+                            <span class="slider-label"><b>{{ item.name }}</b><output for="value_{{ item.id }}">{{ form_data.get('value_' ~ item.id, item.default) }}</output></span>
+                            <small>{{ item.description }}</small>
+                            {% if item.opposite %}<small class="linked-opposite">Paired opposite: {{ references["values"]|selectattr('id', 'equalto', item.opposite)|map(attribute='name')|first }}</small>{% endif %}
+                            <input id="value_{{ item.id }}" name="value_{{ item.id }}" type="range" min="{{ item.minimum }}" max="{{ item.maximum }}" step="1" value="{{ form_data.get('value_' ~ item.id, item.default) }}" data-range-input data-range-family="value" data-opposite="{{ item.opposite }}" required>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        {% for item in references.unpaired_values %}
+                        <label class="slider-control" for="value_{{ item.id }}">
+                            <span class="slider-label"><b>{{ item.name }}</b><output for="value_{{ item.id }}">{{ form_data.get('value_' ~ item.id, item.default) }}</output></span>
+                            <small>{{ item.description }}</small>
+                            <input id="value_{{ item.id }}" name="value_{{ item.id }}" type="range" min="{{ item.minimum }}" max="{{ item.maximum }}" step="1" value="{{ form_data.get('value_' ~ item.id, item.default) }}" data-range-input data-range-family="value" data-opposite="{{ item.opposite }}" required>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </section>
+                <section class="slider-section">
+                    <header><div><h3>Facets</h3><p>How do their traits show up in behavior?</p></div><span>{{ references.facets|length }}</span></header>
+                    <div class="slider-grid">
+                        {% for pair in references.facet_pairs %}
+                        <div class="slider-pair-row">
+                            {% for item in pair %}
+                            <label class="slider-control" for="facet_{{ item.id }}">
+                            <span class="slider-label"><b>{{ item.name }}</b><output for="facet_{{ item.id }}">{{ form_data.get('facet_' ~ item.id, item.default) }}</output></span>
+                            <small>{{ item.description }}</small>
+                            {% if item.opposite %}<small class="linked-opposite">Paired opposite: {{ references.facets|selectattr('id', 'equalto', item.opposite)|map(attribute='name')|first }}</small>{% endif %}
+                            <input id="facet_{{ item.id }}" name="facet_{{ item.id }}" type="range" min="{{ item.minimum }}" max="{{ item.maximum }}" step="1" value="{{ form_data.get('facet_' ~ item.id, item.default) }}" data-range-input data-range-family="facet" data-opposite="{{ item.opposite }}" required>
+                            </label>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        {% for item in references.unpaired_facets %}
+                        <label class="slider-control" for="facet_{{ item.id }}">
+                            <span class="slider-label"><b>{{ item.name }}</b><output for="facet_{{ item.id }}">{{ form_data.get('facet_' ~ item.id, item.default) }}</output></span>
+                            <small>{{ item.description }}</small>
+                            <input id="facet_{{ item.id }}" name="facet_{{ item.id }}" type="range" min="{{ item.minimum }}" max="{{ item.maximum }}" step="1" value="{{ form_data.get('facet_' ~ item.id, item.default) }}" data-range-input data-range-family="facet" data-opposite="{{ item.opposite }}" required>
+                        </label>
+                        {% endfor %}
+                    </div>
+                </section>
+                <div class="step-actions"><button type="button" class="secondary-button" data-back>← Skills</button><button type="submit" class="primary-button save-button">Save Character ✓</button></div>
+            </section>
+        </form>
+    </main>
+    <script src="{{ url_for('static', filename='js/character_creator.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.wisdom"
+object.version,"1"
+
+attribute.name,"Wisdom"
+attribute.description,"Measures judgment, awareness, practical understanding, and decision-making, directly enhancing tactical discernment and choice quality."
+attribute.category,"mental"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.001.value,"15"
+attribute.thresholds.001.effect,"effect.roll_modifier"
+attribute.thresholds.001.target,"roll.event_choice"
+attribute.thresholds.001.amount,"1"
+attribute.thresholds.001.condition,"choice.quality"

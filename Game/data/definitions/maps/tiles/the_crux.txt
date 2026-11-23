@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.the_crux"
+object.version,"1"
+
+tile.name,"The Crux Platform"
+tile.category,"object"
+tile.color,"#D0A43B"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

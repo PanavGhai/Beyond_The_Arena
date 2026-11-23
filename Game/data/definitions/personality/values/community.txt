@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.community"
+object.version,"1"
+
+value.name,"Community"
+value.description,"Importance placed on belonging, collective welfare and shared responsibility."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.desert_scree"
+object.version,"1"
+
+tile.name,"Canyon Scree"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#5D5C61"
+tile.elevation,"3"
+tile.movement_difficulty,"7"

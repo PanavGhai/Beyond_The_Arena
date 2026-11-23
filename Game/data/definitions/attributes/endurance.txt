@@ -1,0 +1,20 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.endurance"
+object.version,"1"
+
+attribute.name,"Endurance"
+attribute.description,"Measures stamina, resilience, and physical endurance, directly improving recovery and healing rates."
+attribute.category,"physical"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.001.value,"15"
+attribute.thresholds.001.effect,"effect.healing_multiplier"
+attribute.thresholds.001.target,"healing.passive"
+attribute.thresholds.001.amount,"1.25"

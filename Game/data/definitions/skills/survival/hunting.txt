@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.hunting"
+object.version,"1"
+
+skill.name,"Hunting"
+skill.description,"Measures proficiency in locating, pursuing, and capturing or killing wildlife for food, resources, and other practical purposes."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

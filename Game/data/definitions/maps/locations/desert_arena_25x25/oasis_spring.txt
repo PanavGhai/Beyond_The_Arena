@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.desert_arena_25x25.oasis_spring"
+object.version,"1"
+
+location.name,"Hidden Oasis Spring"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"23"
+location.position.column,"13"
+
+location.tile,"map.tile.oasis_spring"
+location.symbol,"O"
+
+location.description,"A freshwater spring concealed beneath palms."

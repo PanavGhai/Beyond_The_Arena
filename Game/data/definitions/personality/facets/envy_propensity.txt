@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.envy_propensity"
+object.version,"1"
+
+facet.name,"Envy Propensity"
+facet.description,"Tendency to feel resentment toward others because of their possessions, qualities or advantages."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

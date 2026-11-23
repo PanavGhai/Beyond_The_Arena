@@ -1,0 +1,7 @@
+object.type,"registry"
+object.id,"registry.skills.melee"
+object.version,"1"
+skill.unarmed,"definition.skill.unarmed"
+skill.piercing,"definition.skill.piercing"
+skill.slashing,"definition.skill.slashing"
+skill.bashing,"definition.skill.bashing"

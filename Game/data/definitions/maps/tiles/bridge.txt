@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.bridge"
+object.version,"1"
+
+tile.name,"Old Bridge"
+tile.category,"object"
+tile.color,"#815B3D"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

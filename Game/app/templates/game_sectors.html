@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sectors · {{ game.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game_sectors.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('main.index') }}">BEYOND THE ARENA</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a href="{{ url_for('main.compendium') }}">Compendium</a>
+            <a href="{{ url_for('main.arenas_page') }}">Arenas</a>
+            <a class="play-link active" href="{{ url_for('main.play') }}">Play</a>
+        </nav>
+    </header>
+    <main class="page-shell">
+        <form id="sectorForm" class="sector-form" method="post" action="{{ url_for('main.game_sectors', game_id=game.id) }}"
+              data-sector-minimum="{{ limits.sector_minimum }}" data-sector-maximum="{{ limits.sector_maximum }}"
+              data-member-minimum="{{ limits.member_minimum }}" data-member-maximum="{{ limits.member_maximum }}"
+              data-unique-members="{{ 'true' if limits.unique_members else 'false' }}"
+              data-available-count="{{ tributes|length }}" data-sector-label="{{ limits.sector_label }}"
+              data-default-members="{{ limits.member_default }}"
+              data-preview-url="{{ url_for('main.game_map_preview', game_id=game.id) }}"
+              data-lock-url="{{ url_for('main.game_map_lock', game_id=game.id) }}"
+              data-initially-locked="{{ 'true' if game.map_locked else 'false' }}"
+              data-initially-saved="{{ 'true' if game.status == 'setup_complete' else 'false' }}">
+            <section class="setup-map" aria-labelledby="mapSetupHeading">
+                <h2 id="mapSetupHeading" class="visually-hidden">Arena preview</h2>
+                <div class="map-controls">
+                    <label for="mapChoice">Arena</label>
+                    <select id="mapChoice" {% if game.map_locked %}disabled{% endif %}>
+                        {% for arena in arenas %}<option value="{{ arena.id }}" {% if arena.id == selected_map.id %}selected{% endif %}>{{ arena.name }} · {{ arena.columns }} × {{ arena.rows }}</option>{% endfor %}
+                    </select>
+                    <label for="mapSeed">Seed</label>
+                    <input id="mapSeed" type="text" inputmode="text" value="{{ selected_map.seed }}" aria-label="Map seed" {% if game.map_locked %}disabled{% endif %}>
+                    <button id="useMapSeed" class="secondary-button" type="button" {% if game.map_locked %}disabled{% endif %}>Preview seed</button>
+                    <button id="randomMapSeed" class="secondary-button" type="button" {% if game.map_locked %}disabled{% endif %}>Random seed</button>
+                    <button id="toggleMapLock" class="primary-button" type="button" aria-pressed="{{ 'true' if game.map_locked else 'false' }}">{{ 'Unlock map' if game.map_locked else 'Lock map' }}</button>
+                    <span id="mapLockStatus" class="map-lock-status" aria-live="polite"></span>
+                </div>
+                <input id="mapIdValue" type="hidden" name="map_id" value="{{ selected_map.id }}">
+                <input id="mapSeedValue" type="hidden" name="map_seed" value="{{ selected_map.seed }}">
+                <input id="mapLocked" type="hidden" name="map_locked" value="{{ 'true' if game.map_locked else 'false' }}">
+                <div class="map-preview-layout">
+                    <div class="map-preview-frame" aria-label="Live arena preview" style="--columns: {{ selected_map.grid_columns }}; --rows: {{ selected_map.grid_rows }};">
+                        <div id="setupArenaGrid" class="setup-arena-grid" style="--columns: {{ selected_map.grid_columns }}; --rows: {{ selected_map.grid_rows }};" role="grid" aria-label="{{ selected_map.name }}">
+                            {% for row in selected_map.grid %}{% for cell in row %}
+                            <button type="button" class="setup-map-cell{% if not cell.playable %} is-border{% endif %}{% if cell.special %} is-special{% endif %}"
+                                    style="--tile-color: {{ cell.terrain_color }};{% if cell.terrain_image_url %}background-image:url('{{ cell.terrain_image_url }}');{% endif %}"
+                                    data-coordinate="{{ cell.coordinate }}" data-playable="{{ 'true' if cell.playable else 'false' }}"
+                                    data-terrain="{{ cell.terrain_name }}" data-region="{{ cell.region_name }}"
+                                    data-location="{{ cell.location_name }}" data-special="{{ cell.special.name if cell.special else '' }}"
+                                    aria-label="{{ cell.coordinate }}: {{ cell.terrain_name }}, {{ cell.region_name }}{% if cell.special %}, {{ cell.special.name }}{% endif %}">
+                                {% if cell.special %}<span aria-hidden="true">{{ cell.special.symbol }}</span>{% endif %}
+                            </button>{% endfor %}{% endfor %}
+                        </div>
+                    </div>
+                    <aside class="map-inspector" id="setupMapInspector" aria-live="polite">
+                        <p class="eyebrow">ARENA DETAILS</p>
+                        <h3 id="previewMapName">{{ selected_map.name }}</h3>
+                        <p id="previewMapSize">{{ selected_map.rows }} × {{ selected_map.columns }} playable</p>
+                        <p id="previewMapSeed">Seed {{ selected_map.seed }}</p>
+                        <dl><div><dt>Tile</dt><dd id="previewTerrain">Hover or focus a tile</dd></div>
+                            <div><dt>Region</dt><dd id="previewRegion">—</dd></div>
+                            <div><dt>Location</dt><dd id="previewLocation">—</dd></div>
+                        </dl>
+                        <p id="previewStatus" class="preview-status" role="status"></p>
+                        <section class="game-activity-box" aria-label="Game activity">
+                            <h4>GAME ACTIVITY</h4>
+                            <div id="gameActivityList" aria-live="polite"><p class="activity-empty">No activity yet.</p></div>
+                        </section>
+                    </aside>
+                </div>
+            </section>
+
+            {% if errors %}<div class="notice error-notice setup-notice" role="alert">{% for error in errors %}<p>{{ error }}</p>{% endfor %}</div>{% endif %}
+            {% if not tributes %}
+            <p class="notice error-notice setup-notice">There are no available Tributes yet. Create Tributes in the Compendium, then return here.</p>
+            {% endif %}
+
+            <div id="sectorEditor" {% if game.status == 'setup_complete' %}hidden{% endif %}>
+            <div class="sector-controls">
+                <label for="sectorCount">Number of Sectors <span>({{ limits.sector_minimum }}–{{ limits.sector_maximum }})</span></label>
+                <div class="sector-count-control">
+                    <input id="sectorCount" name="sector_count" type="number" min="{{ limits.sector_minimum }}" max="{{ limits.sector_maximum }}" step="1" value="{{ sector_count_value }}" required>
+                    <button id="buildSectors" class="secondary-button" type="button">Update Sectors</button>
+                </div>
+                <p>{{ tributes|length }} Tributes available. Each Sector needs {{ limits.member_minimum }}–{{ limits.member_maximum }} members; each Tribute may be used once.</p>
+            </div>
+
+            <div id="sectorRoster" class="sector-roster" aria-live="polite">
+                {% for sector in sectors %}
+                {% set sector_number = loop.index %}
+                <section class="sector-card" data-sector-card data-sector-index="{{ sector_number }}">
+                    <header><h2>{{ limits.sector_label }} {{ sector_number }}</h2><span>{{ sector.members|length }} member{% if sector.members|length != 1 %}s{% endif %}</span></header>
+                    <div class="sector-members" data-member-list>
+                        {% for member_id in sector.members %}
+                        {% set member_number = loop.index %}
+                        <div class="sector-member-row" data-member-row>
+                            <label for="sector_{{ '%03d'|format(sector_number) }}_member_{{ '%03d'|format(member_number) }}">
+                                <span>Member {{ member_number }}</span>
+                                <select id="sector_{{ '%03d'|format(sector_number) }}_member_{{ '%03d'|format(member_number) }}" name="sector_{{ '%03d'|format(sector_number) }}_member_{{ '%03d'|format(member_number) }}" required data-member-select>
+                                    <option value="">Choose a Tribute</option>
+                                    {% for tribute in tributes %}
+                                    <option value="{{ tribute.id }}" {% if member_id == tribute.id %}selected{% endif %}>{{ tribute.name }}{% if tribute.nickname %} “{{ tribute.nickname }}”{% endif %}</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                            <button class="remove-member" type="button" data-remove-member aria-label="Remove member">Remove</button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="add-member" type="button" data-add-member>Add member</button>
+                </section>
+                {% endfor %}
+            </div>
+
+            <p id="sectorStatus" class="sector-status" aria-live="polite"></p>
+            <div class="form-actions">
+                <a class="secondary-button" href="{{ url_for('main.play') }}">Save and exit</a>
+                <button id="saveSectors" class="primary-button" type="submit" {% if not tributes %}disabled{% endif %}>Save Sectors</button>
+            </div>
+            </div>
+
+            <section id="sectorSummary" class="sector-summary" {% if game.status != 'setup_complete' %}hidden{% endif %} aria-live="polite">
+                <header class="sector-summary-heading">
+                    <h2>Sectors</h2>
+                    <button id="editSectors" class="secondary-button" type="button">Edit</button>
+                </header>
+                <div id="sectorSummaryCards" class="sector-roster sector-summary-cards"></div>
+            </section>
+        </form>
+    </main>
+
+    <div id="saveToast" class="save-toast" role="status" aria-live="polite" hidden></div>
+
+    <select id="tributeOptions" hidden aria-hidden="true" tabindex="-1">
+        <option value="">Choose a Tribute</option>
+        {% for tribute in tributes %}
+        <option value="{{ tribute.id }}" data-name="{{ tribute.name }}" data-nickname="{{ tribute.nickname }}">{{ tribute.name }}{% if tribute.nickname %} “{{ tribute.nickname }}”{% endif %}</option>
+        {% endfor %}
+    </select>
+    <template id="sectorTemplate">
+        <section class="sector-card" data-sector-card>
+            <header><h2 data-sector-title></h2><span data-member-count></span></header>
+            <div class="sector-members" data-member-list></div>
+            <button class="add-member" type="button" data-add-member>Add member</button>
+        </section>
+    </template>
+    <template id="memberTemplate">
+        <div class="sector-member-row" data-member-row>
+            <label><span data-member-label></span><select required data-member-select></select></label>
+            <button class="remove-member" type="button" data-remove-member aria-label="Remove member">Remove</button>
+        </div>
+    </template>
+    <script src="{{ url_for('static', filename='js/game_sectors.js') }}" defer></script>
+</body>
+</html>

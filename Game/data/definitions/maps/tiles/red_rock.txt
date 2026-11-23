@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.red_rock"
+object.version,"1"
+
+tile.name,"Red Rock"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#8D3B30"
+tile.elevation,"2"
+tile.movement_difficulty,"5"

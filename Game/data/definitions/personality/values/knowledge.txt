@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.knowledge"
+object.version,"1"
+
+value.name,"Knowledge"
+value.description,"Importance placed on learning, understanding and acquiring information."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

@@ -1,0 +1,5 @@
+object.type,"registry"
+object.id,"registry.species.species"
+object.version,"1"
+species.human,"definition.species.human"
+species.ashen_titan,"definition.species.ashen_titan"

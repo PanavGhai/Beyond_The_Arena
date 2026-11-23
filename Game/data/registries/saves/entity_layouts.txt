@@ -1,0 +1,8 @@
+"object.type","registry"
+"object.id","registry.saves.entity_layouts"
+"object.version","1"
+"save.entity_layout.tributes","definition.save.entity_layout.tributes"
+"save.entity_layout.npcs","definition.save.entity_layout.npcs"
+"save.entity_layout.mentors","definition.save.entity_layout.mentors"
+"save.entity_layout.sponsors","definition.save.entity_layout.sponsors"
+"save.entity_layout.wildlife","definition.save.entity_layout.wildlife"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.willow_bog"
+object.version,"1"
+
+tile.name,"Frozen Willow Bog"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#568676"
+tile.elevation,"0"
+tile.movement_difficulty,"7"

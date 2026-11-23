@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.gratitude"
+object.version,"1"
+
+facet.name,"Gratitude Propensity"
+facet.description,"Tendency to appreciate benefits and express thankfulness."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

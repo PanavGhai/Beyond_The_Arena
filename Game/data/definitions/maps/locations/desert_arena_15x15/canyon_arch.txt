@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.desert_arena_15x15.canyon_arch"
+object.version,"1"
+
+location.name,"Redstone Arch"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"8"
+location.position.column,"13"
+
+location.tile,"map.tile.canyon_arch"
+location.symbol,"A"
+
+location.description,"A natural stone bridge over a deep ravine."

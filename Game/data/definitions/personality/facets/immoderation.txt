@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.immoderation"
+object.version,"1"
+
+facet.name,"Immoderation Propensity"
+facet.description,"Tendency to pursue immediate gratification without sufficient restraint."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

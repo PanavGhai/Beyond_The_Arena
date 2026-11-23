@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.permafrost"
+object.version,"1"
+
+tile.name,"Permafrost"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#A4B8C0"
+tile.elevation,"1"
+tile.movement_difficulty,"5"

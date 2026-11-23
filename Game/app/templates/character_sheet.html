@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ character.name }} · Beyond the Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/character_creator.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('main.index') }}">BEYOND THE ARENA</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a class="active" href="{{ url_for('main.compendium') }}">Compendium</a>
+            <a href="{{ url_for('main.arenas_page') }}">Arenas</a>
+            <a href="/play">Play</a>
+        </nav>
+    </header>
+    <main class="creator-shell sheet-shell">
+        <a class="back-link" href="{{ url_for('main.compendium') }}">← Back to Compendium</a>
+        <section class="sheet-hero">
+            <div class="sheet-portrait">
+                <img src="{{ character.portrait_url }}" alt="Portrait of {{ character.name }}">
+            </div>
+            <div class="sheet-intro">
+                <p class="eyebrow">{{ character.role|upper }} · {{ character.species }}</p>
+                <h1>{{ character.name }}</h1>
+                {% if character.nickname %}<p class="sheet-nickname">“{{ character.nickname }}”</p>{% endif %}
+                <p>{{ character.description }}</p>
+                <div class="identity-chips">
+                    <span>{{ character.age }} years</span><span>{{ character.gender }}</span><span>{{ character.pronouns }}</span>
+                    <span>{{ character.height_cm }} cm</span><span>{{ character.weight_kg }} kg</span>
+                </div>
+            </div>
+            <div class="sheet-portrait death-portrait">
+                {% if character.death_portrait_url == 'bw' %}
+                <img src="{{ character.portrait_url }}" alt="Black and white death portrait of {{ character.name }}">
+                {% else %}
+                <img src="{{ character.death_portrait_url }}" alt="Death portrait of {{ character.name }}">
+                {% endif %}
+                <small>Death portrait</small>
+            </div>
+        </section>
+        <section class="sheet-section">
+            <div class="section-heading"><div><p class="eyebrow">CHARACTER SHEET</p><h2>Attributes</h2></div><span class="read-only-badge">Completed · Read only</span></div>
+            <div class="sheet-stat-grid">
+                {% for item in character.attributes %}
+                <article class="sheet-stat"><div><b>{{ item.name }}</b><span>{{ item.value }}</span></div><small>Modifier {{ '%+d'|format(item.modifier) }}</small></article>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="sheet-section">
+            <div class="section-heading"><div><p class="eyebrow">CHARACTER SHEET</p><h2>Skills</h2></div><span>{{ character.skills|length }} registered</span></div>
+            {% for category, items in character.skills|groupby('category') %}
+            <div class="sheet-skill-group"><h3>{{ category|replace('_',' ')|title }}</h3><div class="sheet-stat-grid">
+                {% for item in items %}<article class="sheet-stat"><div><b>{{ item.name }}</b><span>{{ item.value }}</span></div><small>Modifier {{ '%+d'|format(item.modifier) }}</small></article>{% endfor %}
+            </div></div>
+            {% endfor %}
+        </section>
+        <section class="sheet-section">
+            <div class="section-heading"><div><p class="eyebrow">CHARACTER SHEET</p><h2>Values</h2></div></div>
+            <div class="sheet-personality-grid">{% for item in character["values"] %}<article class="personality-stat"><div><span>{{ item.name }}</span><b>{{ item.value }}</b></div><span class="meter"><i style="width: {{ item.value }}%"></i></span></article>{% endfor %}</div>
+        </section>
+        <section class="sheet-section">
+            <div class="section-heading"><div><p class="eyebrow">CHARACTER SHEET</p><h2>Facets</h2></div></div>
+            <div class="sheet-personality-grid">{% for item in character.facets %}<article class="personality-stat"><div><span>{{ item.name }}</span><b>{{ item.value }}</b></div><span class="meter"><i style="width: {{ item.value }}%"></i></span></article>{% endfor %}</div>
+        </section>
+    </main>
+</body>
+</html>

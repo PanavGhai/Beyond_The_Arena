@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.activity_level"
+object.version,"1"
+
+facet.name,"Activity Level"
+facet.description,"General preference for physical activity, movement and energetic behaviour."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

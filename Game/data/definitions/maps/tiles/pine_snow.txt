@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.pine_snow"
+object.version,"1"
+
+tile.name,"Snowbound Pine Forest"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#668058"
+tile.elevation,"1"
+tile.movement_difficulty,"4"

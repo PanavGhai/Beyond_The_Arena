@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.navigation"
+object.version,"1"
+
+skill.name,"Navigation"
+skill.description,"Measures the ability to determine direction, identify routes, interpret environmental landmarks, and travel through unfamiliar or difficult terrain."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

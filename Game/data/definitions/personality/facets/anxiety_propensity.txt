@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.anxiety_propensity"
+object.version,"1"
+
+facet.name,"Anxiety Propensity"
+facet.description,"Tendency to experience worry, apprehension and nervousness."
+facet.opposite,"confidence"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

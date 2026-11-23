@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.independence"
+object.version,"1"
+
+value.name,"Independence"
+value.description,"Importance placed on personal freedom, autonomy and self-reliance."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

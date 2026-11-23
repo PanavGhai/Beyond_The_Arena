@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.ice_crust"
+object.version,"1"
+
+tile.name,"Ice Crust"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#DCE8E3"
+tile.elevation,"1"
+tile.movement_difficulty,"7"

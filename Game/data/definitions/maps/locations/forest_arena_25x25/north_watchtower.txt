@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_25x25.north_watchtower"
+object.version,"1"
+
+location.name,"North Watchtower"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"4"
+location.position.column,"13"
+
+location.tile,"map.tile.watchtower"
+location.symbol,"T"
+
+location.description,"An old timber lookout with a view over the northern forest."

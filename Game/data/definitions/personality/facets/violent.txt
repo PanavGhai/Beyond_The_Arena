@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.violent"
+object.version,"1"
+
+facet.name,"Violence Propensity"
+facet.description,"Tendency to use physical aggression or violence."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

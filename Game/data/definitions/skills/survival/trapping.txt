@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.trapping"
+object.version,"1"
+
+skill.name,"Trapping"
+skill.description,"Measures proficiency in constructing, placing, concealing, and maintaining traps to capture animals or restrain targets."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

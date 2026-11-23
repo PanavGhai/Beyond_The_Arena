@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.justice"
+object.version,"1"
+
+value.name,"Justice"
+value.description,"Importance placed on fairness, equality and rightful treatment."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

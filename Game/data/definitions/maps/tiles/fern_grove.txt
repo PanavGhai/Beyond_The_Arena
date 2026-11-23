@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.fern_grove"
+object.version,"1"
+
+tile.name,"Fern Grove"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#2D8D70"
+tile.elevation,"0"
+tile.movement_difficulty,"4"

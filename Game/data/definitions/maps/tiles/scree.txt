@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.scree"
+object.version,"1"
+
+tile.name,"Scree Slope"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#A99B7B"
+tile.elevation,"3"
+tile.movement_difficulty,"7"

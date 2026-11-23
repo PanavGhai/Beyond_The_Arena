@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.bravery"
+object.version,"1"
+
+facet.name,"Bravery Propensity"
+facet.description,"Willingness to face danger, fear or uncertainty."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.singleminded"
+object.version,"1"
+
+facet.name,"Single-mindedness Propensity"
+facet.description,"Tendency to remain focused on one objective or pursuit."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

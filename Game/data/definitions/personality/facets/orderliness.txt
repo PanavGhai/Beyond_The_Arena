@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.orderliness"
+object.version,"1"
+
+facet.name,"Orderliness Propensity"
+facet.description,"Preference for structure, organisation, consistency and predictable arrangements."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

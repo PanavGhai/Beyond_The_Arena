@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.swayed_by_emotions"
+object.version,"1"
+
+facet.name,"Emotional Susceptibility Propensity"
+facet.description,"Tendency to let emotional states influence judgement and decisions."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

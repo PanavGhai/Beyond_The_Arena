@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.ranger_station"
+object.version,"1"
+
+tile.name,"Ranger Station"
+tile.category,"object"
+tile.color,"#986D43"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

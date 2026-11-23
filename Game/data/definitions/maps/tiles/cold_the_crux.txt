@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cold_the_crux"
+object.version,"1"
+
+tile.name,"The Crux"
+tile.category,"object"
+tile.color,"#89B9C6"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

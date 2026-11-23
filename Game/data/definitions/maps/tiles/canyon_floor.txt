@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.canyon_floor"
+object.version,"1"
+
+tile.name,"Canyon Floor"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#994C39"
+tile.elevation,"1"
+tile.movement_difficulty,"3"

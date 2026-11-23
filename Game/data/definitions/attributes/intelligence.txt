@@ -1,0 +1,20 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.intelligence"
+object.version,"1"
+
+attribute.name,"Intelligence"
+attribute.description,"Measures reasoning, learning, problem-solving, and analytical ability, directly influencing bonus action capacity."
+attribute.category,"mental"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.001.value,"15"
+attribute.thresholds.001.effect,"effect.action_bonus"
+attribute.thresholds.001.target,"action.bonus"
+attribute.thresholds.001.amount,"1"

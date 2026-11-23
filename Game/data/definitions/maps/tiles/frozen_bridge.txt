@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.frozen_bridge"
+object.version,"1"
+
+tile.name,"Frozen Bridge"
+tile.category,"object"
+tile.color,"#6794A1"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

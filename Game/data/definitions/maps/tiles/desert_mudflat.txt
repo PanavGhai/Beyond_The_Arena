@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.desert_mudflat"
+object.version,"1"
+
+tile.name,"Dry Mudflat"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#A27B55"
+tile.elevation,"0"
+tile.movement_difficulty,"6"

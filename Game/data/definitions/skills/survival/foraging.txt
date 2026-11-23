@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.foraging"
+object.version,"1"
+
+skill.name,"Foraging"
+skill.description,"Measures the ability to locate, identify, and collect useful natural resources, including edible plants, fruits, mushrooms, and other materials."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

@@ -1,0 +1,6 @@
+object.type,"registry"
+object.id,"registry.skills.defensive"
+object.version,"1"
+skill.evasion,"definition.skill.evasion"
+skill.defense,"definition.skill.defense"
+skill.stealth,"definition.skill.stealth"

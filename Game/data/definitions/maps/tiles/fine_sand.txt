@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.fine_sand"
+object.version,"1"
+
+tile.name,"Fine Sand"
+tile.category,"terrain"
+tile.terrain_type,"sand"
+tile.color,"#E8C477"
+tile.elevation,"0"
+tile.movement_difficulty,"5"

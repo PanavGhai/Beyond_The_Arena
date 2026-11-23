@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.ice_cave"
+object.version,"1"
+
+tile.name,"Blue Ice Cave"
+tile.category,"object"
+tile.color,"#477E95"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.sandstone"
+object.version,"1"
+
+tile.name,"Sandstone"
+tile.category,"terrain"
+tile.terrain_type,"sand"
+tile.color,"#D38B59"
+tile.elevation,"2"
+tile.movement_difficulty,"4"

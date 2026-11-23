@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.depression_propensity"
+object.version,"1"
+
+facet.name,"Depression Propensity"
+facet.description,"Tendency toward prolonged sadness, hopelessness and depressive emotional states."
+facet.opposite,"cheer_propensity"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

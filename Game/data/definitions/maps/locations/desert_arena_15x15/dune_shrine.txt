@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.desert_arena_15x15.dune_shrine"
+object.version,"1"
+
+location.name,"Dune Shrine"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"2"
+location.position.column,"4"
+
+location.tile,"map.tile.dune_shrine"
+location.symbol,"S"
+
+location.description,"A small sandstone shrine nearly swallowed by dunes."

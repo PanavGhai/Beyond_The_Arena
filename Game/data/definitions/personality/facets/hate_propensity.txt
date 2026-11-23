@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.hate_propensity"
+object.version,"1"
+
+facet.name,"Hate Propensity"
+facet.description,"Tendency to develop strong feelings of hatred or hostility."
+facet.opposite,"love_propensity"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.closeminded"
+object.version,"1"
+
+facet.name,"Closed-mindedness Propensity"
+facet.description,"Tendency to resist unfamiliar ideas, perspectives or changes in belief."
+facet.opposite,"tolerant"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

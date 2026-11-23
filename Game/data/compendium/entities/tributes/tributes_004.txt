@@ -1,0 +1,148 @@
+# ==========================================
+# 1. UNIVERSAL METADATA AND SETTINGS
+# ==========================================
+
+object.type,"entity"
+object.id,"entity.tribute.004"
+object.version,"1"
+
+settings.hardcore,"false"
+
+# ==========================================
+# 2. ENTITY IDENTITY
+# ==========================================
+
+
+entity.role,"tributes"
+entity.name,"Haymitch Abernathy"
+entity.nickname,"Haymitch"
+entity.pronouns,"He/Him"
+entity.gender,"Male"
+entity.age,"40"
+entity.species,"species.human"
+entity.height_cm,"177"
+entity.weight_kg,"83"
+entity.portrait_url,"https://i.pinimg.com/originals/06/a6/be/06a6be81c387226177d98bc340d02914.png"
+entity.death_portrait_url,"dw"
+entity.description,"Second Quarter Quell victor and mentor from District 12. Cynical, sarcastic and resourceful, he is an experienced strategist with deep knowledge of the Hunger Games."
+
+# ==========================================
+# 3. ATTRIBUTES
+# ==========================================
+
+
+entity.attributes.agility,"12"
+entity.attributes.charisma,"7"
+entity.attributes.endurance,"9"
+entity.attributes.intelligence,"11"
+entity.attributes.strength,"7"
+entity.attributes.wisdom,"8"
+
+# ==========================================
+# 4. SKILL PROFICIENCIES
+# ==========================================
+
+
+entity.skills.acrobatics,"6"
+entity.skills.archery,"7"
+entity.skills.bashing,"7"
+entity.skills.defense,"7"
+entity.skills.evasion,"7"
+entity.skills.firemaking,"10"
+entity.skills.fishing,"6"
+entity.skills.foraging,"7"
+entity.skills.gunmanship,"5"
+entity.skills.hunting,"7"
+entity.skills.miscellaneous,"7"
+entity.skills.navigation,"10"
+entity.skills.perception,"9"
+entity.skills.piercing,"11"
+entity.skills.scavenging,"7"
+entity.skills.slashing,"5"
+entity.skills.stealth,"7"
+entity.skills.throwing,"11"
+entity.skills.tracking,"10"
+entity.skills.trapping,"11"
+entity.skills.unarmed,"11"
+
+# ==========================================
+# 5. PERSONALITY FACETS
+# ==========================================
+
+
+entity.personality.facets.love_propensity,"96"
+entity.personality.facets.hate_propensity,"4"
+entity.personality.facets.envy_propensity,"57"
+entity.personality.facets.cheer_propensity,"96"
+entity.personality.facets.depression_propensity,"4"
+entity.personality.facets.anger_propensity,"4"
+entity.personality.facets.anxiety_propensity,"66"
+entity.personality.facets.lust_propensity,"50"
+entity.personality.facets.stress_vulnerability,"23"
+entity.personality.facets.greed,"85"
+entity.personality.facets.immoderation,"61"
+entity.personality.facets.violent,"97"
+entity.personality.facets.perseverance,"15"
+entity.personality.facets.wastefulness,"38"
+entity.personality.facets.discord,"79"
+entity.personality.facets.friendliness,"57"
+entity.personality.facets.politeness,"96"
+entity.personality.facets.disdain_advice,"6"
+entity.personality.facets.bravery,"78"
+entity.personality.facets.confidence,"81"
+entity.personality.facets.vanity,"96"
+entity.personality.facets.ambition,"39"
+entity.personality.facets.gratitude,"81"
+entity.personality.facets.immodesty,"95"
+entity.personality.facets.humor,"5"
+entity.personality.facets.vengeful,"3"
+entity.personality.facets.pride,"79"
+entity.personality.facets.cruelty,"36"
+entity.personality.facets.singleminded,"92"
+entity.personality.facets.hopeful,"83"
+entity.personality.facets.curious,"72"
+entity.personality.facets.bashful,"22"
+entity.personality.facets.privacy,"79"
+entity.personality.facets.perfectionist,"10"
+entity.personality.facets.closeminded,"30"
+entity.personality.facets.tolerant,"35"
+entity.personality.facets.emotionally_obsessive,"55"
+entity.personality.facets.swayed_by_emotions,"85"
+entity.personality.facets.altruism,"41"
+entity.personality.facets.dutifulness,"99"
+entity.personality.facets.thoughtlessness,"30"
+entity.personality.facets.orderliness,"47"
+entity.personality.facets.trust,"47"
+entity.personality.facets.gregariousness,"89"
+entity.personality.facets.assertiveness,"34"
+entity.personality.facets.activity_level,"96"
+entity.personality.facets.excitement_seeking,"75"
+entity.personality.facets.imagination,"100"
+entity.personality.facets.abstract_inclined,"41"
+entity.personality.facets.art_inclined,"2"
+
+# ==========================================
+# 6. PERSONAL VALUES
+# ==========================================
+
+
+entity.personality.values.family,"95"
+entity.personality.values.friendship,"75"
+entity.personality.values.loyalty,"100"
+entity.personality.values.independence,"90"
+entity.personality.values.justice,"90"
+entity.personality.values.power,"15"
+entity.personality.values.tradition,"15"
+entity.personality.values.truth,"85"
+entity.personality.values.knowledge,"85"
+entity.personality.values.nature,"65"
+entity.personality.values.competition,"15"
+entity.personality.values.wealth,"20"
+entity.personality.values.peace,"95"
+entity.personality.values.courage,"90"
+entity.personality.values.privacy,"90"
+entity.personality.values.community,"85"
+
+# ==========================================
+# 7. DERIVED VALUES
+# ==========================================

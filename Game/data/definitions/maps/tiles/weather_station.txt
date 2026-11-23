@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.weather_station"
+object.version,"1"
+
+tile.name,"Weather Station"
+tile.category,"object"
+tile.color,"#8A657A"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

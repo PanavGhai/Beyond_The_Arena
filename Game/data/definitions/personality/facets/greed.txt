@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.greed"
+object.version,"1"
+
+facet.name,"Greed Propensity"
+facet.description,"Tendency to seek excessive personal gain, possessions or resources."
+facet.opposite,"altruism"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

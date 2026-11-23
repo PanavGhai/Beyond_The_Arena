@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.pride"
+object.version,"1"
+
+facet.name,"Pride Propensity"
+facet.description,"Importance placed on personal dignity, achievements and self-respect."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

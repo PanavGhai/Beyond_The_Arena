@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.hopeful"
+object.version,"1"
+
+facet.name,"Hopefulness Propensity"
+facet.description,"Tendency to expect positive outcomes despite uncertainty or adversity."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

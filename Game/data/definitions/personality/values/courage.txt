@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.courage"
+object.version,"1"
+
+value.name,"Courage"
+value.description,"Importance placed on bravery, facing adversity and acting despite fear."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_15x15.blackwater_beach"
+object.version,"1"
+
+location.name,"Blackwater Beach"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"15"
+location.position.column,"7"
+
+location.tile,"map.tile.beach"
+location.symbol,"B"
+
+location.description,"A narrow shingle beach exposed to the southern surf."

@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_25x25.the_crux"
+object.version,"1"
+
+location.name,"The Crux"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"13"
+location.position.column,"13"
+
+location.tile,"map.tile.the_crux"
+location.symbol,"C"
+
+location.description,"The central supply platform and initial gathering point."

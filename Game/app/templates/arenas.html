@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if selection_mode %}Choose an Arena{% else %}Arenas{% endif %} · Beyond the Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/arenas.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('main.index') }}">BEYOND THE ARENA</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a href="{{ url_for('main.compendium') }}">Compendium</a>
+            <a class="{% if not selection_mode %}active{% endif %}" href="{{ url_for('main.arenas_page') }}">Arenas</a>
+            <a class="play-link {% if selection_mode %}active{% endif %}" href="{{ url_for('main.play') }}">Play</a>
+        </nav>
+    </header>
+    <main class="page-shell">
+        <section class="page-heading">
+            <p class="eyebrow">{% if selection_mode %}{{ game.name }} · MAP SETUP{% else %}THE ARENAS{% endif %}</p>
+            <h1>{% if selection_mode %}Choose an arena{% else %}Choose your landscape{% endif %}</h1>
+            <p>{% if selection_mode %}Choose a registered map and seed for this save. Words and large numbers work as seeds.{% else %}Explore the maps registered for Beyond the Arena.{% endif %}</p>
+        </section>
+        {% if message %}<p class="arena-message" role="status">{{ message }}</p>{% endif %}
+        <section class="arena-gallery" aria-label="Available arenas">
+            {% for arena in arenas %}
+            <article class="arena-card">
+                <a class="arena-preview-link" href="{{ url_for('main.map_page', map_id=arena.id) }}" aria-label="Preview {{ arena.name }}">
+                    <div class="arena-preview" style="--columns: {{ arena.preview.grid_columns }}; --rows: {{ arena.preview.grid_rows }};">
+                        {% for row in arena.preview.grid %}
+                            {% for cell in row %}
+                            <span class="preview-cell{% if not cell.playable %} preview-border{% endif %}{% if cell.special %} preview-special{% endif %}"
+                                  style="--tile-color: {{ cell.terrain_color }};{% if cell.terrain_image_url %} background-image:url('{{ cell.terrain_image_url }}');{% endif %}"
+                                  aria-hidden="true"></span>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </a>
+                <div class="arena-copy">
+                    <p class="arena-meta">{{ arena.columns }} × {{ arena.rows }} playable · {{ arena.border_width }}-cell {{ arena.border_type }} border</p>
+                    <h2>{{ arena.name }}</h2>
+                    <p class="arena-description">{{ arena.description }}</p>
+                    {% if selection_mode %}
+                    <form class="arena-select-form" method="post" action="{{ url_for('main.game_map_selection', game_id=game.id) }}">
+                        <input type="hidden" name="map_id" value="{{ arena.id }}">
+                        <label>Seed <input name="seed" type="text" inputmode="text" value="{{ arena.preview.seed }}" required></label>
+                        <button class="arena-action" type="submit">Choose this arena <span aria-hidden="true">→</span></button>
+                    </form>
+                    {% else %}
+                    <a class="arena-action" href="{{ url_for('main.map_page', map_id=arena.id) }}">View arena <span aria-hidden="true">→</span></a>
+                    {% endif %}
+                </div>
+            </article>
+            {% else %}
+            <p>No arenas are available yet.</p>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

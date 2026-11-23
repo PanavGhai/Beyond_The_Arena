@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.gregariousness"
+object.version,"1"
+
+facet.name,"Gregariousness Propensity"
+facet.description,"Preference for social interaction, groups and company."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

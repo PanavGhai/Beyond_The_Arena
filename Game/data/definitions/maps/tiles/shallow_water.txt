@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.shallow_water"
+object.version,"1"
+
+tile.name,"Shallow Water"
+tile.category,"terrain"
+tile.terrain_type,"water"
+tile.color,"#45A0AA"
+tile.elevation,"-1"
+tile.movement_difficulty,"8"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.mudflat"
+object.version,"1"
+
+tile.name,"Mudflat"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#7C694D"
+tile.elevation,"0"
+tile.movement_difficulty,"6"

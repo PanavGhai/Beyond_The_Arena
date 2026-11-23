@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.vanity"
+object.version,"1"
+
+facet.name,"Vanity Propensity"
+facet.description,"Concern with personal appearance, admiration and external approval."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

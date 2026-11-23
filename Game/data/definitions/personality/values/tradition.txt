@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.tradition"
+object.version,"1"
+
+value.name,"Tradition"
+value.description,"Importance placed on customs, heritage and established practices."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

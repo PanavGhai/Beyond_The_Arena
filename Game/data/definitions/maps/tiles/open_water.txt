@@ -1,0 +1,11 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.open_water"
+object.version,"1"
+
+tile.name,"Open Water"
+tile.category,"terrain"
+tile.terrain_type,"water"
+tile.color,"#25779A"
+tile.elevation,"-2"
+tile.movement_difficulty,"10"
+tile.image,"maps/tiles/open_water.svg"

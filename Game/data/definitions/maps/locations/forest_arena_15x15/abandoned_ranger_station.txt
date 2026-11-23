@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_15x15.abandoned_ranger_station"
+object.version,"1"
+
+location.name,"Abandoned Ranger Station"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"6"
+location.position.column,"3"
+
+location.tile,"map.tile.ranger_station"
+location.symbol,"R"
+
+location.description,"A weathered field station with remnants of equipment and shelter."

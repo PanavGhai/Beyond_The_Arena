@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.cold_arena_25x25.hot_spring"
+object.version,"1"
+
+location.name,"Hidden Hot Spring"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"18"
+location.position.column,"16"
+
+location.tile,"map.tile.hot_spring"
+location.symbol,"H"
+
+location.description,"A rare geothermal pool in the frozen marsh."

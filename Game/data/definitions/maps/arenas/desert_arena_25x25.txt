@@ -1,0 +1,38 @@
+object.type,"map_arena"
+object.id,"definition.map.arena.desert_arena_25x25"
+object.version,"1"
+
+arena.name,"Sunscar Desert Arena 25x25"
+arena.description,"A sun-baked desert island of rolling dunes, red-rock canyons, salt flats, and a hidden oasis, surrounded by open sea."
+
+arena.dimensions.width,"25"
+arena.dimensions.height,"25"
+
+arena.generation.rows,"25"
+arena.generation.columns,"25"
+arena.generation.enabled,"true"
+arena.generation.seed,"482508"
+arena.generation.fallback_region_type,"hot_wilds"
+arena.border.width,"2"
+arena.border.name,"Surrounding Sea"
+arena.border.type,"water"
+arena.border.tile,"map.tile.deep_water"
+
+arena.region,"definition.map.region.desert_arena_25x25.northern_dunes"
+arena.region,"definition.map.region.desert_arena_25x25.northeastern_badlands"
+arena.region,"definition.map.region.desert_arena_25x25.western_scrub"
+arena.region,"definition.map.region.desert_arena_25x25.central_dune_sea"
+arena.region,"definition.map.region.desert_arena_25x25.eastern_canyons"
+arena.region,"definition.map.region.desert_arena_25x25.western_salt_flats"
+arena.region,"definition.map.region.desert_arena_25x25.southern_oasis"
+arena.region,"definition.map.region.desert_arena_25x25.southeastern_scrub"
+
+arena.fallback_region,"definition.map.region.desert_arena_25x25.fallback"
+
+arena.location,"definition.map.location.desert_arena_25x25.the_crux"
+arena.location,"definition.map.location.desert_arena_25x25.signal_tower"
+arena.location,"definition.map.location.desert_arena_25x25.oasis_spring"
+arena.location,"definition.map.location.desert_arena_25x25.buried_bazaar"
+arena.location,"definition.map.location.desert_arena_25x25.collapsed_cistern"
+arena.location,"definition.map.location.desert_arena_25x25.canyon_arch"
+arena.location,"definition.map.location.desert_arena_25x25.dune_shrine"

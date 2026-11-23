@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.firemaking"
+object.version,"1"
+
+skill.name,"Firemaking"
+skill.description,"Measures proficiency in starting, maintaining, and controlling fires using available materials and environmental conditions."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

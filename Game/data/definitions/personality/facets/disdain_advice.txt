@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.disdain_advice"
+object.version,"1"
+
+facet.name,"Disdain for Advice Propensity"
+facet.description,"Tendency to dismiss or resist advice from other people."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

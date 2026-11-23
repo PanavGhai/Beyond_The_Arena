@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cold_scree"
+object.version,"1"
+
+tile.name,"Wind-scoured Scree"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#414F72"
+tile.elevation,"3"
+tile.movement_difficulty,"8"

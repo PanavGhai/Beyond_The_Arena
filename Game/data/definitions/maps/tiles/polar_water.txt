@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.polar_water"
+object.version,"1"
+
+tile.name,"Polar Sea"
+tile.category,"terrain"
+tile.terrain_type,"water"
+tile.color,"#3B628A"
+tile.elevation,"-2"
+tile.movement_difficulty,"10"

@@ -1,0 +1,7 @@
+object.type,"registry"
+object.id,"registry.skills.marksmanship"
+object.version,"1"
+skill.throwing,"definition.skill.throwing"
+skill.archery,"definition.skill.archery"
+skill.miscellaneous,"definition.skill.miscellaneous"
+skill.gunmanship,"definition.skill.gunmanship"

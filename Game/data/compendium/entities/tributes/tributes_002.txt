@@ -1,0 +1,148 @@
+# ==========================================
+# 1. UNIVERSAL METADATA AND SETTINGS
+# ==========================================
+
+object.type,"entity"
+object.id,"entity.tribute.002"
+object.version,"1"
+
+settings.hardcore,"false"
+
+# ==========================================
+# 2. ENTITY IDENTITY
+# ==========================================
+
+
+entity.role,"tributes"
+entity.name,"Peeta Mellark"
+entity.nickname,"The Boy with the Bread"
+entity.pronouns,"He/Him"
+entity.gender,"Male"
+entity.age,"16"
+entity.species,"species.human"
+entity.height_cm,"178"
+entity.weight_kg,"66"
+entity.portrait_url,"https://miro.medium.com/v2/resize:fit:1400/1*E_b4jDj8liwLu0ywVr38Wg@2x.jpeg"
+entity.death_portrait_url,"bw"
+entity.description,"Skilled baker and artist. Charismatic, compassionate and resourceful, with exceptional social intelligence and a strong sense of morality."
+
+# ==========================================
+# 3. ATTRIBUTES
+# ==========================================
+
+
+entity.attributes.agility,"11"
+entity.attributes.charisma,"7"
+entity.attributes.endurance,"9"
+entity.attributes.intelligence,"11"
+entity.attributes.strength,"9"
+entity.attributes.wisdom,"7"
+
+# ==========================================
+# 4. SKILL PROFICIENCIES
+# ==========================================
+
+
+entity.skills.acrobatics,"9"
+entity.skills.archery,"9"
+entity.skills.bashing,"6"
+entity.skills.defense,"9"
+entity.skills.evasion,"6"
+entity.skills.firemaking,"9"
+entity.skills.fishing,"7"
+entity.skills.foraging,"8"
+entity.skills.gunmanship,"13"
+entity.skills.hunting,"6"
+entity.skills.miscellaneous,"5"
+entity.skills.navigation,"7"
+entity.skills.perception,"9"
+entity.skills.piercing,"9"
+entity.skills.scavenging,"9"
+entity.skills.slashing,"8"
+entity.skills.stealth,"10"
+entity.skills.throwing,"9"
+entity.skills.tracking,"7"
+entity.skills.trapping,"6"
+entity.skills.unarmed,"7"
+
+# ==========================================
+# 5. PERSONALITY FACETS
+# ==========================================
+
+
+entity.personality.facets.love_propensity,"74"
+entity.personality.facets.hate_propensity,"26"
+entity.personality.facets.envy_propensity,"83"
+entity.personality.facets.cheer_propensity,"83"
+entity.personality.facets.depression_propensity,"17"
+entity.personality.facets.anger_propensity,"22"
+entity.personality.facets.anxiety_propensity,"71"
+entity.personality.facets.lust_propensity,"11"
+entity.personality.facets.stress_vulnerability,"69"
+entity.personality.facets.greed,"48"
+entity.personality.facets.immoderation,"49"
+entity.personality.facets.violent,"94"
+entity.personality.facets.perseverance,"23"
+entity.personality.facets.wastefulness,"3"
+entity.personality.facets.discord,"83"
+entity.personality.facets.friendliness,"9"
+entity.personality.facets.politeness,"12"
+entity.personality.facets.disdain_advice,"54"
+entity.personality.facets.bravery,"83"
+entity.personality.facets.confidence,"34"
+entity.personality.facets.vanity,"93"
+entity.personality.facets.ambition,"14"
+entity.personality.facets.gratitude,"86"
+entity.personality.facets.immodesty,"6"
+entity.personality.facets.humor,"36"
+entity.personality.facets.vengeful,"43"
+entity.personality.facets.pride,"59"
+entity.personality.facets.cruelty,"84"
+entity.personality.facets.singleminded,"41"
+entity.personality.facets.hopeful,"5"
+entity.personality.facets.curious,"7"
+entity.personality.facets.bashful,"97"
+entity.personality.facets.privacy,"34"
+entity.personality.facets.perfectionist,"6"
+entity.personality.facets.closeminded,"60"
+entity.personality.facets.tolerant,"96"
+entity.personality.facets.emotionally_obsessive,"72"
+entity.personality.facets.swayed_by_emotions,"30"
+entity.personality.facets.altruism,"25"
+entity.personality.facets.dutifulness,"92"
+entity.personality.facets.thoughtlessness,"61"
+entity.personality.facets.orderliness,"75"
+entity.personality.facets.trust,"14"
+entity.personality.facets.gregariousness,"93"
+entity.personality.facets.assertiveness,"81"
+entity.personality.facets.activity_level,"41"
+entity.personality.facets.excitement_seeking,"52"
+entity.personality.facets.imagination,"51"
+entity.personality.facets.abstract_inclined,"66"
+entity.personality.facets.art_inclined,"47"
+
+# ==========================================
+# 6. PERSONAL VALUES
+# ==========================================
+
+
+entity.personality.values.family,"85"
+entity.personality.values.friendship,"90"
+entity.personality.values.loyalty,"100"
+entity.personality.values.independence,"75"
+entity.personality.values.justice,"95"
+entity.personality.values.power,"10"
+entity.personality.values.tradition,"45"
+entity.personality.values.truth,"90"
+entity.personality.values.knowledge,"65"
+entity.personality.values.nature,"40"
+entity.personality.values.competition,"20"
+entity.personality.values.wealth,"15"
+entity.personality.values.peace,"100"
+entity.personality.values.courage,"95"
+entity.personality.values.privacy,"65"
+entity.personality.values.community,"95"
+
+# ==========================================
+# 7. DERIVED VALUES
+# ==========================================

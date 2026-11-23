@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.power"
+object.version,"1"
+
+value.name,"Power"
+value.description,"Importance placed on authority, control and influence over others or circumstances."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

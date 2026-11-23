@@ -1,0 +1,19 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.agility"
+object.version,"1"
+
+attribute.name,"Agility"
+attribute.description,"Measures coordination, balance, reflexes, and physical responsiveness, directly shaping movement efficiency."
+attribute.category,"physical"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.value,"15"
+attribute.thresholds.effect,"effect.action_bonus"
+attribute.thresholds.amount,"1"

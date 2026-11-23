@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.ambition"
+object.version,"1"
+
+facet.name,"Ambition Propensity"
+facet.description,"Desire to achieve goals, status, influence or personal advancement."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

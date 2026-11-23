@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.scavenging"
+object.version,"1"
+
+skill.name,"Scavenging"
+skill.description,"Measures the ability to search environments, abandoned locations, and discarded materials for useful, reusable, or valuable resources."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

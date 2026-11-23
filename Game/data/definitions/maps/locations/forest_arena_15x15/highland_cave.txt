@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_15x15.highland_cave"
+object.version,"1"
+
+location.name,"Highland Cave"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"3"
+location.position.column,"13"
+
+location.tile,"map.tile.cave"
+location.symbol,"C"
+
+location.description,"A narrow cave entrance beneath the eastern rock face."

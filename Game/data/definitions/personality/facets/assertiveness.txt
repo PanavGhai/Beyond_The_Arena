@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.assertiveness"
+object.version,"1"
+
+facet.name,"Assertiveness Propensity"
+facet.description,"Willingness to express opinions, defend interests and take initiative."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

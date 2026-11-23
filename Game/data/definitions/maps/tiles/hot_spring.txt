@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.hot_spring"
+object.version,"1"
+
+tile.name,"Hot Spring"
+tile.category,"object"
+tile.color,"#3186C2"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

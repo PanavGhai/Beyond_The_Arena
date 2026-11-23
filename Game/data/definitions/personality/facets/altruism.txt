@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.altruism"
+object.version,"1"
+
+facet.name,"Altruism Propensity"
+facet.description,"Tendency to prioritise the welfare and needs of others."
+facet.opposite,"greed"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

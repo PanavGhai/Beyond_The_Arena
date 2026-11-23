@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.beach"
+object.version,"1"
+
+tile.name,"Shingle Beach"
+tile.category,"terrain"
+tile.terrain_type,"sand"
+tile.color,"#D0B887"
+tile.elevation,"0"
+tile.movement_difficulty,"2"

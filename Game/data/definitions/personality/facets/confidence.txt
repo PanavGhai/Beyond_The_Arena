@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.confidence"
+object.version,"1"
+
+facet.name,"Confidence Propensity"
+facet.description,"Belief in personal abilities, judgement and worth."
+facet.opposite,"anxiety_propensity"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

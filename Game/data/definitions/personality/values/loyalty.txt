@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.loyalty"
+object.version,"1"
+
+value.name,"Loyalty"
+value.description,"Importance placed on faithfulness, allegiance and standing by others."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

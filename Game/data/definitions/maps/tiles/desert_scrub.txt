@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.desert_scrub"
+object.version,"1"
+
+tile.name,"Desert Scrub"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#83713C"
+tile.elevation,"1"
+tile.movement_difficulty,"4"

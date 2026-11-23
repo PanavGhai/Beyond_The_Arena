@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.abstract_inclined"
+object.version,"1"
+
+facet.name,"Abstract Thinking"
+facet.description,"Preference for conceptual, theoretical and abstract ideas over concrete details."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

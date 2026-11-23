@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.cold_arena_25x25.ice_cave"
+object.version,"1"
+
+location.name,"Blue Ice Cave"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"10"
+location.position.column,"6"
+
+location.tile,"map.tile.ice_cave"
+location.symbol,"I"
+
+location.description,"A sheltered cave cut into the ridge."

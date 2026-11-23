@@ -1,0 +1,10 @@
+﻿object.type,"registry"
+object.id,"registry.attributes"
+object.version,"1"
+
+attribute.strength,"definition.attribute.strength"
+attribute.agility,"definition.attribute.agility"
+attribute.endurance,"definition.attribute.endurance"
+attribute.intelligence,"definition.attribute.intelligence"
+attribute.wisdom,"definition.attribute.wisdom"
+attribute.charisma,"definition.attribute.charisma"

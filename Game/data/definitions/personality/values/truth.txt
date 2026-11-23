@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.truth"
+object.version,"1"
+
+value.name,"Truth"
+value.description,"Importance placed on honesty, accuracy and discovering what is genuine."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

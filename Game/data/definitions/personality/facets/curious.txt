@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.curious"
+object.version,"1"
+
+facet.name,"Curiosity Propensity"
+facet.description,"Desire to explore, investigate and acquire new information."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

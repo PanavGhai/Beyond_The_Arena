@@ -1,0 +1,34 @@
+object.type,"map_arena"
+object.id,"definition.map.arena.cold_arena_15x15"
+object.version,"1"
+
+arena.name,"Frostfall Island Arena 15x15"
+arena.description,"A remote subarctic island of glacier ridges snowy taiga frozen wetlands and an icebound coast."
+
+arena.dimensions.width,"15"
+arena.dimensions.height,"15"
+
+arena.generation.rows,"15"
+arena.generation.columns,"15"
+arena.generation.enabled,"true"
+arena.generation.seed,"150915"
+arena.generation.fallback_region_type,"cold_wilds"
+arena.border.width,"2"
+arena.border.name,"Polar Sea"
+arena.border.type,"water"
+arena.border.tile,"map.tile.polar_water"
+
+arena.region,"definition.map.region.cold_arena_15x15.glacier"
+arena.region,"definition.map.region.cold_arena_15x15.mountain_spine"
+arena.region,"definition.map.region.cold_arena_15x15.taiga"
+arena.region,"definition.map.region.cold_arena_15x15.tundra"
+arena.region,"definition.map.region.cold_arena_15x15.frozen_marsh"
+arena.region,"definition.map.region.cold_arena_15x15.coastal_ice"
+
+arena.fallback_region,"definition.map.region.cold_arena_15x15.fallback"
+
+arena.location,"definition.map.location.cold_arena_15x15.the_crux"
+arena.location,"definition.map.location.cold_arena_15x15.weather_station"
+arena.location,"definition.map.location.cold_arena_15x15.ice_cave"
+arena.location,"definition.map.location.cold_arena_15x15.hot_spring"
+arena.location,"definition.map.location.cold_arena_15x15.frozen_bridge"

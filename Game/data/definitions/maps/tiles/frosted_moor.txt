@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.frosted_moor"
+object.version,"1"
+
+tile.name,"Frosted Moor"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#B9C69B"
+tile.elevation,"1"
+tile.movement_difficulty,"4"

@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.cold_arena_15x15.weather_station"
+object.version,"1"
+
+location.name,"Abandoned Weather Station"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"3"
+location.position.column,"8"
+
+location.tile,"map.tile.weather_station"
+location.symbol,"W"
+
+location.description,"A wind-battered station above the glacier shelf."

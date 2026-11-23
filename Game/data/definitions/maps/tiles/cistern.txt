@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cistern"
+object.version,"1"
+
+tile.name,"Collapsed Cistern"
+tile.category,"object"
+tile.color,"#43877F"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

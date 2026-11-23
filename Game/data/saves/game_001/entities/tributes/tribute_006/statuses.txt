@@ -1,0 +1,6 @@
+"object.type","saved_entity_data"
+"object.id","save.game_001.entity.tributes.001.statuses"
+"object.version","1"
+"save.entity.source_id","entity.tributes.001"
+"save.entity.role","tributes"
+"save.entity.data_group","statuses"

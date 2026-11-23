@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.excitement_seeking"
+object.version,"1"
+
+facet.name,"Excitement Seeking Propensity"
+facet.description,"Desire for stimulation, novelty, adventure and thrilling experiences."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

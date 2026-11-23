@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.wastefulness"
+object.version,"1"
+
+facet.name,"Wastefulness Propensity"
+facet.description,"Tendency to spend or consume resources without sufficient consideration."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

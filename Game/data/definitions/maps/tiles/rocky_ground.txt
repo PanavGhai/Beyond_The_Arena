@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.rocky_ground"
+object.version,"1"
+
+tile.name,"Rugged Rock"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#7D7B6A"
+tile.elevation,"2"
+tile.movement_difficulty,"5"

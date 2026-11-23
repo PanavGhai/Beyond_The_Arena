@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.tolerant"
+object.version,"1"
+
+facet.name,"Tolerance Propensity"
+facet.description,"Willingness to accept differences, disagreement and unfamiliar behaviour."
+facet.opposite,"closeminded"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

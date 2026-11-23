@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.perseverance"
+object.version,"1"
+
+facet.name,"Perseverance Propensity"
+facet.description,"Tendency to persist through difficulty and continue pursuing goals."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

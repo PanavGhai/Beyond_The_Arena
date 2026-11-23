@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.shallow_pool"
+object.version,"1"
+
+tile.name,"Shallow Pool"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#21A77C"
+tile.elevation,"-1"
+tile.movement_difficulty,"6"

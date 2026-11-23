@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.humor"
+object.version,"1"
+
+facet.name,"Humor Propensity"
+facet.description,"Tendency to appreciate, create and express amusement."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_15x15.coastal_shipwreck"
+object.version,"1"
+
+location.name,"Coastal Shipwreck"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"14"
+location.position.column,"14"
+
+location.tile,"map.tile.shipwreck"
+location.symbol,"S"
+
+location.description,"The remains of a small vessel caught against the southeastern rocks."

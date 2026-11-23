@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.ice_shelf"
+object.version,"1"
+
+tile.name,"Ice Shelf"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#95C5D3"
+tile.elevation,"0"
+tile.movement_difficulty,"6"

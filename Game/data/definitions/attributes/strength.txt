@@ -1,0 +1,20 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.strength"
+object.version,"1"
+
+attribute.name,"Strength"
+attribute.description,"Measures physical force and the ability to exert power through muscular effort, directly influencing attack roll advantage."
+attribute.category,"physical"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.001.value,"15"
+attribute.thresholds.001.effect,"effect.roll_advantage"
+attribute.thresholds.001.target,"roll.attack"
+attribute.thresholds.001.amount,"1"

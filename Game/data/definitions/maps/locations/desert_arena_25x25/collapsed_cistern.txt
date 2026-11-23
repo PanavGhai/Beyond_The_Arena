@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.desert_arena_25x25.collapsed_cistern"
+object.version,"1"
+
+location.name,"Collapsed Cistern"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"16"
+location.position.column,"4"
+
+location.tile,"map.tile.cistern"
+location.symbol,"W"
+
+location.description,"A cracked reservoir with a little trapped water."

@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cave"
+object.version,"1"
+
+tile.name,"Cave Entrance"
+tile.category,"object"
+tile.color,"#303942"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

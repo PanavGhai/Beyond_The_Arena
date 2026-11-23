@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.friendship"
+object.version,"1"
+
+value.name,"Friendship"
+value.description,"Importance placed on companionship, friendship and close social bonds."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

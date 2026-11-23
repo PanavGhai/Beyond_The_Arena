@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.buried_bazaar"
+object.version,"1"
+
+tile.name,"Buried Bazaar"
+tile.category,"object"
+tile.color,"#B87845"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

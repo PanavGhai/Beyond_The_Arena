@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.peace"
+object.version,"1"
+
+value.name,"Peace"
+value.description,"Importance placed on harmony, stability and the avoidance of conflict."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

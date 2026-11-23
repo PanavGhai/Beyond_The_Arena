@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_15x15.hidden_waterfall"
+object.version,"1"
+
+location.name,"Hidden Waterfall"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"10"
+location.position.column,"7"
+
+location.tile,"map.tile.waterfall"
+location.symbol,"W"
+
+location.description,"A waterfall feeding the island's central freshwater basin."

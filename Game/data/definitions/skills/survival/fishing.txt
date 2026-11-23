@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.fishing"
+object.version,"1"
+
+skill.name,"Fishing"
+skill.description,"Measures proficiency in locating, attracting, catching, and retrieving fish using available fishing methods, tools, and equipment."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

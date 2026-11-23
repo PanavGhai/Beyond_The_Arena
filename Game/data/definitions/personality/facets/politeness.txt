@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.politeness"
+object.version,"1"
+
+facet.name,"Politeness Propensity"
+facet.description,"Tendency to observe social etiquette and treat others courteously."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

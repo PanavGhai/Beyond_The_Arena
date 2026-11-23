@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.tracking"
+object.version,"1"
+
+skill.name,"Tracking"
+skill.description,"Measures the ability to identify, follow, and interpret tracks, footprints, trails, and other signs of movement left by people and animals."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

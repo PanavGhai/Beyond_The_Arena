@@ -1,0 +1,148 @@
+# ==========================================
+# 1. UNIVERSAL METADATA AND SETTINGS
+# ==========================================
+
+object.type,"entity"
+object.id,"entity.tribute.005"
+object.version,"1"
+
+settings.hardcore,"false"
+
+# ==========================================
+# 2. ENTITY IDENTITY
+# ==========================================
+
+
+entity.role,"tributes"
+entity.name,"Nihilas"
+entity.nickname,"Nihilas"
+entity.pronouns,"It/Its"
+entity.gender,"Other"
+entity.age,"1"
+entity.species,"species.human"
+entity.height_cm,"1"
+entity.weight_kg,"1"
+entity.portrait_url,"https://dwarffortresswiki.org/images/e/ef/Foul_blendec_portrait.png"
+entity.death_portrait_url,"https://www.dwarffortresswiki.org/images/8/84/14177z5.jpg"
+entity.description,"Nihilas"
+
+# ==========================================
+# 3. ATTRIBUTES
+# ==========================================
+
+
+entity.attributes.agility,"10"
+entity.attributes.charisma,"9"
+entity.attributes.endurance,"9"
+entity.attributes.intelligence,"10"
+entity.attributes.strength,"8"
+entity.attributes.wisdom,"8"
+
+# ==========================================
+# 4. SKILL PROFICIENCIES
+# ==========================================
+
+
+entity.skills.acrobatics,"9"
+entity.skills.archery,"6"
+entity.skills.bashing,"6"
+entity.skills.defense,"5"
+entity.skills.evasion,"7"
+entity.skills.firemaking,"7"
+entity.skills.fishing,"13"
+entity.skills.foraging,"8"
+entity.skills.gunmanship,"9"
+entity.skills.hunting,"6"
+entity.skills.miscellaneous,"7"
+entity.skills.navigation,"8"
+entity.skills.perception,"7"
+entity.skills.piercing,"7"
+entity.skills.scavenging,"5"
+entity.skills.slashing,"8"
+entity.skills.stealth,"9"
+entity.skills.throwing,"11"
+entity.skills.tracking,"11"
+entity.skills.trapping,"10"
+entity.skills.unarmed,"9"
+
+# ==========================================
+# 5. PERSONALITY FACETS
+# ==========================================
+
+
+entity.personality.facets.envy_propensity,"84"
+entity.personality.facets.anger_propensity,"82"
+entity.personality.facets.anxiety_propensity,"79"
+entity.personality.facets.lust_propensity,"71"
+entity.personality.facets.stress_vulnerability,"93"
+entity.personality.facets.greed,"73"
+entity.personality.facets.immoderation,"33"
+entity.personality.facets.violent,"17"
+entity.personality.facets.perseverance,"77"
+entity.personality.facets.wastefulness,"29"
+entity.personality.facets.discord,"84"
+entity.personality.facets.friendliness,"17"
+entity.personality.facets.politeness,"63"
+entity.personality.facets.disdain_advice,"65"
+entity.personality.facets.bravery,"78"
+entity.personality.facets.confidence,"83"
+entity.personality.facets.vanity,"71"
+entity.personality.facets.ambition,"67"
+entity.personality.facets.gratitude,"64"
+entity.personality.facets.immodesty,"74"
+entity.personality.facets.humor,"61"
+entity.personality.facets.vengeful,"66"
+entity.personality.facets.pride,"82"
+entity.personality.facets.cruelty,"62"
+entity.personality.facets.singleminded,"70"
+entity.personality.facets.hopeful,"63"
+entity.personality.facets.curious,"58"
+entity.personality.facets.bashful,"10"
+entity.personality.facets.privacy,"65"
+entity.personality.facets.perfectionist,"22"
+entity.personality.facets.closeminded,"67"
+entity.personality.facets.tolerant,"27"
+entity.personality.facets.emotionally_obsessive,"65"
+entity.personality.facets.swayed_by_emotions,"29"
+entity.personality.facets.altruism,"73"
+entity.personality.facets.dutifulness,"64"
+entity.personality.facets.thoughtlessness,"71"
+entity.personality.facets.orderliness,"70"
+entity.personality.facets.trust,"67"
+entity.personality.facets.gregariousness,"70"
+entity.personality.facets.assertiveness,"69"
+entity.personality.facets.activity_level,"63"
+entity.personality.facets.excitement_seeking,"79"
+entity.personality.facets.imagination,"72"
+entity.personality.facets.abstract_inclined,"62"
+entity.personality.facets.art_inclined,"59"
+entity.personality.facets.love_propensity,"94"
+entity.personality.facets.hate_propensity,"6"
+entity.personality.facets.cheer_propensity,"27"
+entity.personality.facets.depression_propensity,"73"
+
+# ==========================================
+# 6. PERSONAL VALUES
+# ==========================================
+
+
+entity.personality.values.family,"73"
+entity.personality.values.friendship,"68"
+entity.personality.values.loyalty,"19"
+entity.personality.values.independence,"0"
+entity.personality.values.justice,"77"
+entity.personality.values.power,"34"
+entity.personality.values.tradition,"39"
+entity.personality.values.truth,"74"
+entity.personality.values.knowledge,"84"
+entity.personality.values.nature,"24"
+entity.personality.values.competition,"41"
+entity.personality.values.wealth,"73"
+entity.personality.values.peace,"77"
+entity.personality.values.courage,"89"
+entity.personality.values.privacy,"35"
+entity.personality.values.community,"71"
+
+# ==========================================
+# 7. DERIVED VALUES
+# ==========================================

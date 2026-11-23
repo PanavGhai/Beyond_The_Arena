@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.nature"
+object.version,"1"
+
+value.name,"Nature"
+value.description,"Importance placed on the natural world, wildlife and the environment."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

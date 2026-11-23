@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.signal_tower"
+object.version,"1"
+
+tile.name,"Broken Signal Tower"
+tile.category,"object"
+tile.color,"#A24D60"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.emotionally_obsessive"
+object.version,"1"
+
+facet.name,"Emotional Obsession Propensity"
+facet.description,"Tendency to become intensely preoccupied with emotionally significant people or experiences."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

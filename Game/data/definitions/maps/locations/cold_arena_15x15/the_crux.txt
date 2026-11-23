@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.cold_arena_15x15.the_crux"
+object.version,"1"
+
+location.name,"The Crux"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"8"
+location.position.column,"8"
+
+location.tile,"map.tile.cold_the_crux"
+location.symbol,"C"
+
+location.description,"Central supplies on an exposed frozen basin."

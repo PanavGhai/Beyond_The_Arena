@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.tall_grass"
+object.version,"1"
+
+tile.name,"Tall Grass"
+tile.category,"terrain"
+tile.terrain_type,"ground"
+tile.color,"#8FA542"
+tile.elevation,"0"
+tile.movement_difficulty,"3"

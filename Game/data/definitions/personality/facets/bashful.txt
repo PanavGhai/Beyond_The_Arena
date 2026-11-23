@@ -1,0 +1,9 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.bashful"
+object.version,"1"
+
+facet.name,"Bashfulness Propensity"
+facet.description,"Tendency to feel shy, self-conscious or uncomfortable receiving attention."
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

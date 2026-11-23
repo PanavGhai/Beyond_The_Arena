@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if selected_map %}{{ selected_map.name }}{% else %}Arena Map{% endif %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+</head>
+<body>
+    <header class="map-header">
+        <div>
+            <a class="back-link" href="/">← Main website</a>
+            <h1>{% if selected_map %}{{ selected_map.name }}{% else %}Arena Maps{% endif %}</h1>
+            {% if selected_map %}<p>{{ selected_map.description }}</p>{% endif %}
+        </div>
+        {% if maps %}
+        <label class="map-selector">
+            <span>Choose arena</span>
+            <select id="mapSelector">
+                {% for map in maps %}
+                <option value="{{ map.id }}" {% if selected_map and map.id == selected_map.id %}selected{% endif %}>{{ map.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        {% endif %}
+        {% if setup_mode %}<a class="play-link" href="/play">Switch saved game</a>{% else %}<a class="play-link" href="/arenas">All Arenas</a>{% endif %}
+    </header>
+    {% if message %}<div class="save-toast" id="saveToast" role="status" aria-live="polite"><span>{{ message }}</span><button type="button" aria-label="Dismiss notification">×</button></div>{% endif %}
+    {% if selected_map %}
+    <main class="map-layout">
+        <section class="map-panel" aria-label="Arena map">
+            <div class="map-toolbar">
+                <span>{{ selected_map.grid_rows }} × {{ selected_map.grid_columns }} shown grid</span>
+                <span>{{ selected_map.rows }} × {{ selected_map.columns }} playable area{% if selected_map.edge_width %} · fixed {{ selected_map.edge_width }}-tile {{ selected_map.edge_region.name|lower }} border{% endif %}</span>
+                <label class="seed-control"><span>Seed</span><input id="mapSeed" type="text" inputmode="text" value="{{ selected_map.seed }}" aria-label="Map seed (numbers wrap to 32 bits; text converts consistently)" required></label>
+                <button id="regenerateMap" class="regenerate-button" type="button">Use seed</button>
+                <button id="randomizeMap" class="regenerate-button" type="button">Random seed</button>
+            </div>
+            <div id="arenaGrid" class="arena-grid"
+                 style="--columns: {{ selected_map.grid_columns }}; --rows: {{ selected_map.grid_rows }};"
+                 role="grid" aria-label="{{ selected_map.name }}">
+                {% for row in selected_map.grid %}
+                    {% for cell in row %}
+                    <button class="map-cell{% if cell.special %} special-cell{% endif %}{% if cell.objects %} has-objects{% endif %}{% if not cell.playable %} edge-cell{% endif %}"
+                            type="button" role="gridcell"
+                            style="--tile-color: {{ cell.terrain_color }};{% if cell.terrain_image_url %} background-image: url('{{ cell.terrain_image_url }}');{% endif %}"
+                            data-row="{{ cell.row }}"
+                            data-grid-row="{{ cell.grid_row }}"
+                            data-grid-column="{{ cell.grid_column }}"
+                            data-coordinate="{{ cell.coordinate }}"
+                            data-playable="{{ 'true' if cell.playable else 'false' }}"
+                            data-column="{{ cell.column }}"
+                            data-tile-id="{{ cell.tile_id }}"
+                            data-terrain-id="{{ cell.terrain_tile_id }}"
+                            data-terrain-name="{{ cell.terrain_name }}"
+                            data-objects='{{ cell.objects|tojson }}'
+                            data-overlays='{{ cell.overlays|tojson }}'
+                            data-conditions='{{ cell.conditions|tojson }}'
+                            data-biome="{{ cell.biome_name }}"
+                            data-region-id="{{ cell.region_id }}"
+                            data-region="{{ cell.region_name }}"
+                            data-location="{{ cell.location_name }}"
+                            data-special="{{ cell.special.name if cell.special else '' }}"
+                            aria-label="{{ cell.coordinate }}: {{ cell.terrain_name }}, {{ cell.region_name }}{% if cell.special %}, {{ cell.special.name }}{% endif %}"
+                            title="{{ cell.coordinate }} · {{ cell.terrain_name }} · {{ cell.region_name }}">
+                        {% for overlay in cell.overlays %}
+                        <span class="map-overlay-layer" aria-hidden="true" style="{% if overlay.color %}--overlay-color: {{ overlay.color }};{% endif %}{% if overlay.image_url %}background-image:url('{{ overlay.image_url }}');{% endif %}"></span>
+                        {% endfor %}
+                        {% for object in cell.objects %}
+                        <span class="map-object" data-object-id="{{ object.id }}" title="{{ object.name }}" aria-hidden="true"
+                              style="--object-color: {{ object.tile_color }};{% if object.image_url %}background-image:url('{{ object.image_url }}');{% endif %}">{{ object.symbol }}</span>
+                        {% endfor %}
+                        {% if cell.special and not cell.objects %}<span class="special-marker" aria-hidden="true">{{ cell.special.get('symbol', '◆') }}</span>{% endif %}
+                    </button>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </section>
+        <aside class="cell-info" id="cellInfo" aria-live="polite" aria-atomic="true">
+            <p class="inspector-eyebrow">TILE INSPECTOR</p>
+            <h2 id="inspectorTitle">Explore the arena</h2>
+            <p class="inspector-hint">Hover over or focus a tile to see its details.</p>
+            <dl class="inspector-fields">
+                <div><dt>Coordinate</dt><dd data-inspector-field="coordinate">—</dd></div>
+                <div><dt>Location</dt><dd data-inspector-field="location">—</dd></div>
+                <div><dt>Region</dt><dd data-inspector-field="region">—</dd></div>
+                <div><dt>Biome</dt><dd data-inspector-field="biome">—</dd></div>
+                <div><dt>Terrain</dt><dd data-inspector-field="terrain">—</dd></div>
+                <div><dt>Objects</dt><dd data-inspector-field="objects">—</dd></div>
+                <div><dt>Overlays</dt><dd data-inspector-field="overlays">—</dd></div>
+                <div><dt>Conditions</dt><dd data-inspector-field="conditions">—</dd></div>
+            </dl>
+            <section class="game-activity">
+                <h3>GAME FLOW</h3>
+                <div class="game-flow-box" id="gameFlow" aria-label="Game flow updates" aria-live="polite"></div>
+                {% if setup_mode and current_map_confirmed %}
+                <form id="startGameForm" class="start-game-form" method="post" action="{{ url_for('start_current_game', game_id=current_game.game_id) }}" hidden>
+                    <input type="hidden" name="npc_ready" value="0">
+                    <input type="hidden" name="loot_ready" value="0">
+                    <button class="setup-primary-button" type="submit" {% if current_game.status == 'ready' %}disabled{% endif %}>{% if current_game.status == 'ready' %}Game Ready{% else %}Start Game{% endif %}</button>
+                </form>
+                {% endif %}
+            </section>
+        </aside>
+    </main>
+    {% if setup_mode %}
+    {% if not current_map_confirmed %}
+    <section class="setup-stage map-confirm-stage">
+        <div>
+            <p class="inspector-eyebrow">SETUP · STEP 1</p>
+            <h2>Choose your arena</h2>
+            <p>Regenerate until the layout feels right. It becomes part of {{ current_game.name }} after you confirm it.</p>
+        </div>
+        <form method="post" action="{{ url_for('confirm_current_map', game_id=current_game.game_id) }}">
+            <input type="hidden" name="map_id" value="{{ selected_map.id }}">
+            <input type="hidden" name="seed" value="{{ selected_map.seed }}">
+            <button class="setup-primary-button" type="submit">Confirm this map</button>
+        </form>
+    </section>
+    {% endif %}
+    {% if current_map_confirmed %}
+    <div class="map-setup-flow" id="mapSetupFlow"
+         data-setup-token="{{ setup_token }}"
+         data-teams-ready="{{ 'true' if current_game.teams else 'false' }}"
+         data-game-ready="{{ 'true' if current_game.status == 'ready' else 'false' }}">
+    <section class="team-setup" id="teams">
+        <header class="team-setup-heading">
+            <div><p class="inspector-eyebrow">SETUP · STEP 2</p><h2>Build the tribute teams</h2>
+                <p>Choose existing characters. Each sector can have a different number of members.</p></div>
+            <div class="team-heading-actions">
+                <span class="cast-summary">{{ current_game.teams|length if current_game.teams else 0 }} teams</span>
+                {% if current_game.teams %}<span class="setup-state is-ready">Teams ready</span>{% else %}<span class="setup-state">Teams needed</span>{% endif %}
+                <button id="editTeams" class="regenerate-button" type="button" hidden>Edit teams</button>
+            </div>
+        </header>
+        <script type="application/json" id="savedCharacterData">{{ saved_characters|tojson }}</script>
+        <script type="application/json" id="existingTeamData">{{ current_game.teams|default([], true)|tojson }}</script>
+        <form id="castForm" class="cast-form" method="post" action="{{ url_for('save_current_cast', game_id=current_game.game_id) }}">
+            <div class="team-controls" data-team-editor>
+                <label><span>Number of teams</span><input id="teamCount" name="team_count" type="number" min="1" max="48" required value="{{ current_game.team_count|default(12, true) }}"></label>
+                <label><span>Members in each new team</span><input id="membersPerTeam" name="members_per_team" type="number" min="1" max="48" required value="{{ current_game.default_members_per_team|default(2, true) }}"></label>
+                <button id="buildTeams" class="regenerate-button" type="button">Build teams</button>
+            </div>
+            <p class="team-help" data-team-editor>There are {{ saved_characters|length }} existing characters available. Create more before setting a larger cast. A character can only appear once in this game.</p>
+                    <a class="creator-link" data-team-editor href="{{ url_for('main.create_character') }}" target="_blank" rel="noopener">Open the character creator in a new tab</a>
+            <span class="team-help" data-team-editor>After creating one, refresh this page to add it to the list.</span>
+            <p id="castRequirement" class="cast-requirement" aria-live="polite" data-team-editor></p>
+            <div id="teamRoster" class="team-roster"></div>
+            <button class="setup-primary-button" type="submit" data-team-editor>Save teams to {{ current_game.name }}</button>
+        </form>
+        <div class="cast-transfer">
+            <div>
+                <p class="inspector-eyebrow">TEXT CAST</p><h3>Import or export teams</h3>
+                <p>Plain text only: a team heading, then one existing character name per line. Every name must match a saved character.</p>
+                <pre>Team 1
+Katniss Everdeen
+Peeta Mellark
+
+Team 2
+Existing character name</pre>
+            </div>
+            <form method="post" action="{{ url_for('import_current_cast', game_id=current_game.game_id) }}" enctype="multipart/form-data">
+                <label class="cast-file"><span>Import a text file</span><input type="file" name="cast_file" accept=".txt,text/plain"></label>
+                <label class="cast-text-label"><span>Or paste the cast text</span><textarea name="cast_text" rows="9" placeholder="Team 1&#10;First member&#10;Second member&#10;&#10;Team 2&#10;Third member"></textarea></label>
+                <div class="cast-actions">
+                    <button class="regenerate-button" type="submit">Import cast</button>
+                    <a class="export-link" href="{{ url_for('export_current_cast', game_id=current_game.game_id) }}">Export current cast as .txt</a>
+                    <a class="export-link" href="{{ url_for('main.create_character') }}" target="_blank" rel="noopener">Create a character in a new tab</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="setup-stage pregame-setup" aria-labelledby="pregameSetupTitle">
+        <header class="pregame-heading">
+            <p class="inspector-eyebrow">SETUP · STEP 3</p>
+            <h2 id="pregameSetupTitle">Pregame Setup</h2>
+        </header>
+        <div class="pregame-roll-grid">
+            <article class="pregame-roll-card" aria-labelledby="npcRollTitle">
+                <div class="roll-stage-copy">
+                    <h3 id="npcRollTitle">NPC Roll</h3>
+                    <p>NPC selection rules and catalogue rolls will be added here.</p>
+                </div>
+                <div class="roll-stage-action">
+                    <span class="setup-state" data-roll-status="npc">Not ready</span>
+                    <button class="regenerate-button" type="button" data-roll-reroll="npc" {% if not current_game.teams %}disabled{% endif %}>Reroll NPCs</button>
+                    <button class="setup-primary-button" type="button" data-roll-confirm="npc" {% if not current_game.teams %}disabled{% endif %}>Mark NPCs ready</button>
+                </div>
+            </article>
+            <article class="pregame-roll-card" aria-labelledby="lootRollTitle">
+                <div class="roll-stage-copy">
+                    <h3 id="lootRollTitle">Loot Roll</h3>
+                    <p>Loot setup rules and placement will be added here.</p>
+                </div>
+                <div class="roll-stage-action">
+                    <span class="setup-state" data-roll-status="loot">Not ready</span>
+                    <button class="regenerate-button" type="button" data-roll-reroll="loot" {% if not current_game.teams %}disabled{% endif %}>Reroll Loot</button>
+                    <button class="setup-primary-button" type="button" data-roll-confirm="loot" {% if not current_game.teams %}disabled{% endif %}>Mark loot ready</button>
+                </div>
+            </article>
+        </div>
+    </section>
+    </div>
+    {% endif %}
+    {% endif %}
+    {% else %}
+    <main class="empty-state">
+        <h2>No maps are available</h2>
+        <p>Register an arena in <code>data/registries/maps/arenas.txt</code>.</p>
+    </main>
+    {% endif %}
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+    {% if setup_mode and current_map_confirmed %}<script src="{{ url_for('static', filename='js/game_setup.js') }}"></script>{% endif %}
+</body>
+</html>

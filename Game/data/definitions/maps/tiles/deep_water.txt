@@ -1,0 +1,11 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.deep_water"
+object.version,"1"
+
+tile.name,"Open Sea"
+tile.category,"terrain"
+tile.terrain_type,"water"
+tile.color,"#0E4773"
+tile.elevation,"-2"
+tile.movement_difficulty,"10"
+tile.image,"maps/desert/tiles/open_water.svg"

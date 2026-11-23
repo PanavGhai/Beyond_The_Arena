@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.desert_arena_15x15.buried_bazaar"
+object.version,"1"
+
+location.name,"Buried Bazaar"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"3"
+location.position.column,"13"
+
+location.tile,"map.tile.buried_bazaar"
+location.symbol,"R"
+
+location.description,"Ruined market stalls half-buried by drifting sand."

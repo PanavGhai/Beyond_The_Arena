@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Play · Beyond the Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game_saves.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('main.index') }}">BEYOND THE ARENA</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('main.index') }}">Home</a>
+            <a href="{{ url_for('main.compendium') }}">Compendium</a>
+            <a href="{{ url_for('main.arenas_page') }}">Arenas</a>
+            <a class="play-link active" href="{{ url_for('main.play') }}">Play Now</a>
+        </nav>
+    </header>
+    <main class="page-shell">
+        <section class="page-heading">
+            <p class="eyebrow">GAME SAVES · {{ save_count }} / {{ save_limit }}</p>
+            <h1>Choose your game</h1>
+            <p>Start a new arena setup or reopen a saved one. Each save keeps its own map, sectors, and entity copies.</p>
+        </section>
+        {% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+        <section class="new-save-panel">
+            <div>
+                <p class="eyebrow">NEW SAVE</p>
+                <h2>Begin a new game</h2>
+                <p>Preview and lock an arena, then arrange Tributes into Sectors. You can keep up to {{ save_limit }} saves.</p>
+            </div>
+            <form method="post" action="{{ url_for('main.create_game_save') }}">
+                <label for="gameName">Game name <span>(optional)</span></label>
+                <input id="gameName" name="game_name" maxlength="60" placeholder="For example, Winter Run">
+                <button class="primary-button" type="submit" {% if save_count >= save_limit %}disabled{% endif %}>Create new save</button>
+            </form>
+            {% if save_count >= save_limit %}<p class="limit-note">All save slots are used. Delete a save below to make room.</p>{% endif %}
+        </section>
+
+        <section class="saved-games" aria-label="Saved games">
+            <div class="section-heading"><h2>Saved games</h2><span>{{ saves|length }} listed</span></div>
+            {% for save in saves %}
+            <article class="save-card">
+                <div class="save-copy">
+                    <p class="save-meta">{{ save.id }} · {{ save.status|replace('_',' ')|upper }}</p>
+                    <h3>{{ save.name }}</h3>
+                    <p>{{ save.map_name }} · {{ save.sector_count }} Sectors · {{ save.member_count }} Tributes</p>
+                </div>
+                <div class="save-actions">
+                    <form method="post" action="{{ url_for('main.open_game_save', game_id=save.id) }}">
+                        <button class="primary-button" type="submit">Open save</button>
+                    </form>
+                    <form method="post" action="{{ url_for('main.delete_game_save', game_id=save.id) }}" onsubmit="return confirm('Delete this save and its entity copies permanently?')">
+                        <button class="delete-button" type="submit">Delete</button>
+                    </form>
+                </div>
+            </article>
+            {% else %}
+            <p class="empty-note">No saved games yet. Create one above to begin.</p>
+            {% endfor %}
+        </section>
+        <p class="creator-note">{{ character_count }} Tributes currently available. <a href="{{ url_for('main.create_character') }}">Open the character creator</a>.</p>
+    </main>
+</body>
+</html>

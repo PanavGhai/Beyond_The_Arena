@@ -1,0 +1,10 @@
+﻿object.type,"personality_facet"
+object.id,"definition.personality.facet.cheer_propensity"
+object.version,"1"
+
+facet.name,"Cheerfulness Propensity"
+facet.description,"Tendency to experience and express happiness, enthusiasm and positive emotion."
+facet.opposite,"depression_propensity"
+facet.category,"personality"
+facet.minimum,"0"
+facet.maximum,"100"

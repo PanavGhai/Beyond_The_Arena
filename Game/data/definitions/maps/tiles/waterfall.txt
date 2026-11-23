@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.waterfall"
+object.version,"1"
+
+tile.name,"Waterfall"
+tile.category,"object"
+tile.color,"#66BBD1"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.glacier"
+object.version,"1"
+
+tile.name,"Blue Glacier"
+tile.category,"terrain"
+tile.terrain_type,"snow"
+tile.color,"#C9EAF0"
+tile.elevation,"4"
+tile.movement_difficulty,"7"

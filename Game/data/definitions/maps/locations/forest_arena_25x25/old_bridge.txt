@@ -1,0 +1,15 @@
+object.type,"map_location"
+object.id,"definition.map.location.forest_arena_25x25.old_bridge"
+object.version,"1"
+
+location.name,"Collapsed Footbridge"
+location.type,"special_location"
+location.enabled,"true"
+
+location.position.row,"18"
+location.position.column,"16"
+
+location.tile,"map.tile.bridge"
+location.symbol,"B"
+
+location.description,"A damaged crossing over a fast-moving stream."

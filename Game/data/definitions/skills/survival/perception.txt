@@ -1,0 +1,13 @@
+object.type,"skill"
+object.id,"definition.skill.perception"
+object.version,"1"
+
+skill.name,"Perception"
+skill.description,"Measures awareness of one's surroundings and the ability to detect threats, objects, resources, movement, and environmental details."
+
+skill.category,"survival"
+
+skill.minimum,"1"
+skill.maximum,"20"
+skill.default,"5"
+skill.creation_maximum,"15"

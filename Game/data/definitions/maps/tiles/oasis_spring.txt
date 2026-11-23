@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.oasis_spring"
+object.version,"1"
+
+tile.name,"Oasis Spring"
+tile.category,"object"
+tile.color,"#188EAA"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

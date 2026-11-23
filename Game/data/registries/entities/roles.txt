@@ -1,0 +1,8 @@
+object.type,"registry"
+object.id,"registry.entities.roles"
+object.version,"1"
+entity.role.tributes,"tributes"
+entity.role.mentors,"mentors"
+entity.role.sponsors,"sponsors"
+entity.role.wildlife,"wildlife"
+entity.role.npcs,"npcs"

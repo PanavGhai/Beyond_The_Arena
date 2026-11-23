@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.watchtower"
+object.version,"1"
+
+tile.name,"Watchtower"
+tile.category,"object"
+tile.color,"#6E4F3A"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

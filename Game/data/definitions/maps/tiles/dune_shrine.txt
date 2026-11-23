@@ -1,0 +1,9 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.dune_shrine"
+object.version,"1"
+
+tile.name,"Dune Shrine"
+tile.category,"object"
+tile.color,"#D5A66D"
+tile.elevation,"0"
+tile.movement_difficulty,"0"

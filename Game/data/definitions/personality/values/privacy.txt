@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.privacy"
+object.version,"1"
+
+value.name,"Privacy"
+value.description,"Importance placed on personal boundaries, confidentiality and seclusion."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

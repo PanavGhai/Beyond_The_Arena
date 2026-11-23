@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.family"
+object.version,"1"
+
+value.name,"Family"
+value.description,"Importance placed on family bonds, relatives and familial responsibilities."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"

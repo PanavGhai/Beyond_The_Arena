@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Compendium · Beyond the Arena</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/compendium.css') }}"
+    >
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <a class="brand" href="/">
+            BEYOND THE ARENA
+        </a>
+
+        <nav aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a class="active" href="/compendium">Compendium</a>
+            <a href="/arenas">Arenas</a>
+            <a href="/play">Play</a>
+        </nav>
+
+    </header>
+
+
+    <main class="page-shell">
+
+        <!-- CATEGORY BROWSER -->
+
+        <section
+            class="character-browser"
+            aria-label="Browse entity categories"
+        >
+
+            <div
+                class="character-tabs"
+                role="tablist"
+                aria-label="Entity categories"
+            >
+
+                <button
+                    class="category-tab{% if not selected_category %} is-active{% endif %}"
+                    type="button"
+                    data-category="all"
+                    aria-selected="{{ 'true' if not selected_category else 'false' }}"
+                >
+                    All
+                    <span>{{ entities|length }}</span>
+                </button>
+
+                {% for category in categories %}
+
+                <button
+                    class="category-tab{% if selected_category == category.id %} is-active{% endif %}"
+                    type="button"
+                    data-category="{{ category.id }}"
+                    aria-selected="{{ 'true' if selected_category == category.id else 'false' }}"
+                >
+                    {{ category.name }}
+                    <span>{{ category.count }}</span>
+                </button>
+
+                {% endfor %}
+
+                <a class="category-tab create-character-tab" href="{{ url_for('main.create_character') }}" aria-label="Create a character" title="Create a character">
+                    <span class="create-character-plus" aria-hidden="true">+</span>
+                    <b>Create</b>
+                </a>
+
+            </div>
+
+
+            <!-- FILTERS -->
+
+            <div class="character-filters">
+
+                <input
+                    id="characterSearch"
+                    type="search"
+                    placeholder="Search names and descriptions"
+                    aria-label="Search entities"
+                >
+
+                <select id="roleFilter" aria-label="Filter by role">
+
+                    <option value="">
+                        All roles
+                    </option>
+
+                    {% for role in role_options %}
+
+                    <option value="{{ role|lower }}">
+                        {{ role|title }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <select id="speciesFilter" aria-label="Filter by species">
+
+                    <option value="">
+                        All species
+                    </option>
+
+                    {% for species in species_options %}
+
+                    <option value="{{ species|lower }}">
+                        {{ species|title }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+        </section>
+
+        {% if entities %}
+
+
+        <!-- ENTITY GALLERY -->
+
+        <section
+            class="character-gallery"
+            id="characterGallery"
+            aria-label="Entity cards"
+        >
+
+            {% for character in entities %}
+
+            <article
+                class="character-card"
+                data-character-id="{{ character.id }}"
+                data-category="{{ character.category_id }}"
+                data-role="{{ character.role|lower }}"
+                data-species="{{ character.species|lower }}"
+                data-search="{{ (
+                    character.name ~ ' ' ~
+                    character.nickname ~ ' ' ~
+                    character.description
+                )|lower }}"
+                style="--card-index: {{ loop.index0 }};"
+            >
+
+                <!-- FLIP CARD -->
+
+                <button
+                    class="card-flip"
+                    type="button"
+                    aria-expanded="false"
+                    aria-label="View details for {{ character.name }}"
+                >
+
+                    <span class="card-inner">
+
+
+                        <!-- FRONT -->
+
+                        <span class="card-face card-front">
+
+                            <span class="portrait-art">
+
+                                <img
+                                    src="{{ character.portrait_url or url_for('static', filename='images/hero.webp') }}"
+                                    data-fallback="{{ url_for('static', filename='images/hero.webp') }}"
+                                    alt=""
+                                    loading="lazy"
+                                >
+
+                                <span class="portrait-wash"></span>
+
+                                <span
+                                    class="portrait-initials"
+                                    aria-hidden="true"
+                                >
+                                    {{ character.name[:1] }}
+                                </span>
+
+
+                                <span class="portrait-caption">
+
+                                    <span class="category-tag">
+
+                                        {{ character.category_name|upper }}
+
+                                    </span>
+
+                                    <strong>
+                                        {{ character.name }}
+                                    </strong>
+
+                                    {% if character.nickname %}
+
+                                    <span class="nickname">
+                                        “{{ character.nickname }}”
+                                    </span>
+
+                                    {% endif %}
+
+                                </span>
+
+                            </span>
+
+
+                            <!-- CARD SUMMARY -->
+
+                            <span class="card-summary">
+
+                                <span class="role">
+                                    {{ character.role|title or character.category_name }}
+                                </span>
+
+                                <span class="summary-text">
+                                    {{ character.description or 'No description available.' }}
+                                </span>
+
+
+                                <span class="card-meta">
+
+                                    {% for field in character.profile_fields[:3] %}
+
+                                    <span>
+                                        {{ field.label }}
+                                        <b>{{ field.value }}</b>
+                                    </span>
+
+                                    {% endfor %}
+
+                                </span>
+
+                            </span>
+
+                        </span>
+
+
+                        <!-- BACK -->
+
+                        <span class="card-face card-back">
+
+                            <span class="back-heading">
+
+                                <strong>
+                                    {{ character.name }}
+                                </strong>
+
+
+                            </span>
+
+
+                            <!-- PROFILE FACTS -->
+
+                            <span class="profile-facts">
+
+                                {% for field in character.profile_fields %}
+
+                                <span>
+                                    <small>{{ field.label }}</small>
+                                    <b>{{ field.value }}</b>
+                                </span>
+
+                                {% endfor %}
+
+                            </span>
+
+
+                            <!-- ATTRIBUTES -->
+
+                            {% if character.attributes %}
+
+                            <span class="compact-section-title">
+                                ATTRIBUTES
+                            </span>
+
+                            <span class="attribute-list">
+
+                                {% for item in character.attributes %}
+
+                                <span class="attribute-row">
+
+                                    <span>{{ item.name }}</span>
+
+                                    <b>{{ item.value }}</b>
+
+                                    <span class="mini-meter">
+                                        <i style="width: {{ item.percent }}%"></i>
+                                    </span>
+
+                                </span>
+
+                                {% endfor %}
+
+                            </span>
+
+                            {% endif %}
+
+
+                            <!-- STRONGEST SKILLS -->
+
+                            {% if character.top_skills %}
+
+                            <span class="compact-section-title">
+                                STRONGEST SKILLS
+                            </span>
+
+                            <span class="skill-chips">
+
+                                {% for item in character.top_skills %}
+
+                                <span>
+                                    {{ item.name }}
+                                    <b>{{ item.value }}</b>
+                                </span>
+
+                                {% endfor %}
+
+                            </span>
+
+                            {% endif %}
+
+                        </span>
+
+                    </span>
+
+                </button>
+
+            <a class="character-sheet-link" href="{{ url_for('main.character_sheet', role=character.category_id, character_file=character.file_name) }}">Open character sheet</a>
+
+
+                <!-- PERSONALITY DATA TEMPLATE -->
+
+                <template class="personality-template">
+
+                    <div class="personality-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                PERSONALITY PROFILE
+                            </p>
+
+                            <h2>
+                                {{ character.name }}
+                            </h2>
+
+                            <p>
+                                Personality values and facets.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="close-panel"
+                            type="button"
+                            aria-label="Close personality panel"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="personality-groups">
+
+
+                        <!-- VALUES -->
+
+                        <section class="metric-group">
+
+                            <header>
+
+                                <h3>
+                                    Personality Values
+                                </h3>
+
+                                <span>
+                                    {{ character.personality_values|length }}
+                                </span>
+
+                            </header>
+
+
+                            {% for item in character.personality_values %}
+
+                            <div class="personality-stat">
+
+                                <div>
+
+                                    <span>{{ item.name }}</span>
+
+                                    <b>{{ item.value }}</b>
+
+                                </div>
+
+                                <span class="meter">
+                                    <i style="width: {{ item.percent }}%"></i>
+                                </span>
+
+                            </div>
+
+                            {% endfor %}
+
+                        </section>
+
+
+                        <!-- FACETS -->
+
+                        <section class="metric-group">
+
+                            <header>
+
+                                <h3>
+                                    Personality Facets
+                                </h3>
+
+                                <span>
+                                    {{ character.personality_facets|length }}
+                                </span>
+
+                            </header>
+
+
+                            {% for item in character.personality_facets %}
+
+                            <div class="personality-stat">
+
+                                <div>
+
+                                    <span>{{ item.name }}</span>
+
+                                    <b>{{ item.value }}</b>
+
+                                </div>
+
+                                <span class="meter">
+                                    <i style="width: {{ item.percent }}%"></i>
+                                </span>
+
+                            </div>
+
+                            {% endfor %}
+
+                        </section>
+
+                    </div>
+
+                </template>
+
+            </article>
+
+            {% endfor %}
+
+
+            <!-- PERSONALITY PANEL -->
+
+            <aside
+                class="personality-panel"
+                id="personalityPanel"
+                aria-live="polite"
+                hidden
+            >
+
+                <div id="personalityContent"></div>
+
+            </aside>
+
+        </section>
+
+
+        <p
+            class="empty-filter-state"
+            id="emptyFilterState"
+            hidden
+        >
+            No entities match these filters.
+        </p>
+
+
+        {% else %}
+
+
+        <!-- EMPTY COMPENDIUM -->
+
+        <section class="empty-state">
+
+            <h2>No entity files found</h2>
+
+            <p>
+                Add entity files under
+                <code>data/compendium/entities/</code>
+                inside a registered category folder.
+            </p>
+
+        </section>
+
+
+        {% endif %}
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='js/compendium.js') }}"></script>
+
+</body>
+
+</html>

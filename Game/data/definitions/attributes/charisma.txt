@@ -1,0 +1,20 @@
+﻿object.type,"attribute"
+object.id,"definition.attribute.charisma"
+object.version,"1"
+
+attribute.name,"Charisma"
+attribute.description,"Measures social influence, interpersonal presence, and communication effectiveness, directly increasing the likelihood of receiving gifts and donations."
+attribute.category,"social"
+
+attribute.default,"6"
+attribute.minimum,"1"
+attribute.maximum,"20"
+
+# ==========================================
+# ATTRIBUTE THRESHOLD EFFECTS
+# ==========================================
+
+attribute.thresholds.001.value,"15"
+attribute.thresholds.001.effect,"effect.roll_advantage"
+attribute.thresholds.001.target,"roll.gift_donation"
+attribute.thresholds.001.amount,"1"

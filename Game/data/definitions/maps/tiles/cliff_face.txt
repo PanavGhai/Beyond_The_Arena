@@ -1,0 +1,10 @@
+object.type,"map_tile"
+object.id,"definition.map.tile.cliff_face"
+object.version,"1"
+
+tile.name,"Cliff Face"
+tile.category,"terrain"
+tile.terrain_type,"rock"
+tile.color,"#586B7E"
+tile.elevation,"4"
+tile.movement_difficulty,"9"

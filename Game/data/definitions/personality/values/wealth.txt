@@ -1,0 +1,9 @@
+﻿object.type,"personality_value"
+object.id,"definition.personality.value.wealth"
+object.version,"1"
+
+value.name,"Wealth"
+value.description,"Importance placed on money, possessions and material prosperity."
+value.category,"personality"
+value.minimum,"0"
+value.maximum,"100"
